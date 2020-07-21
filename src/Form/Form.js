@@ -69,6 +69,10 @@ class Form extends React.Component {
             {this.renderInputs()}
           </label>
         </section>
+        <input 
+          type='submit'
+          value='Play!'
+        />
       </form>
     )
   }

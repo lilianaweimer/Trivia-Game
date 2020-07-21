@@ -1,5 +1,11 @@
 .start-game-form {
   display: flex;
+  height: 40%;
   flex-direction: column;
-  
+  width: 50%
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
