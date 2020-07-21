@@ -4,7 +4,10 @@ import Form from '../Form/Form'
 
 function App() {
   return (
-    <Form />
+    <main className='App'>
+      <Form />
+
+    </main>
   );
 }
 

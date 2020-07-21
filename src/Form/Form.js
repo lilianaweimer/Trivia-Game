@@ -44,32 +44,33 @@ class Form extends React.Component {
           />
         </label>
         <section className='categories'>
-          <label>
+          <label className='round-label'>
             Round 1: 
             {this.renderInputs()}
           </label>
-          <label>
+          <label className='round-label'>
             Round 2: 
             {this.renderInputs()}
           </label>
-          <label>
+          <label className='round-label'>
             Round 3: 
             {this.renderInputs()}
           </label>
-          <label>
+          <label className='round-label'>
             Round 4: 
             {this.renderInputs()}
           </label>
-          <label>
+          <label className='round-label'>
             Round 5: 
             {this.renderInputs()}
           </label>
-          <label>
+          <label className='round-label'>
             Round 6: 
             {this.renderInputs()}
           </label>
         </section>
         <input 
+          className='play-btn'
           type='submit'
           value='Play!'
         />
