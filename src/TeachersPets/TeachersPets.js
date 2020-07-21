@@ -1,4 +1,5 @@
 import React from 'react';
+import './TeachersPets.css';
 
 const TeachersPets = () => {
     return (

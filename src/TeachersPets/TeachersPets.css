@@ -1,0 +1,10 @@
+.scoreboard {
+    width: 75%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.scoreboard-toprow {
+    font-weight: bold;
+}
