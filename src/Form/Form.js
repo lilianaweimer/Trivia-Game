@@ -37,7 +37,8 @@ class Form extends React.Component {
   render() {
     return (
       <form className='start-game-form'>
-        <label>
+        <h1>Welcome to BlahBlah</h1>
+        <label className='player-input'>
           Player:
           <input 
             type='text'
