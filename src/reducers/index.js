@@ -6,7 +6,9 @@ export const rootReducer = combineReducers({
   currentQuestion,
   score,
   lives,
-  name,
+  playerName,
   leaderboard,
-  gameStatus,
+  isPlaying,
+  isLoading,
+  error
 })
