@@ -36,13 +36,13 @@ class Form extends React.Component {
     this.props.history.push('/play')
   }
 
-  getAllQuestions = () => {
-    this.props.getQuestions('round1', this.state.round1, 'easy')
-    this.props.getQuestions('round2', this.state.round2, 'easy')
-    this.props.getQuestions('round3', this.state.round3, 'medium')
-    this.props.getQuestions('round4', this.state.round4, 'medium')
-    this.props.getQuestions('round5', this.state.round5, 'hard')
-    this.props.getQuestions('round6', this.state.round6, 'hard')
+  getAllQuestions = async () => {
+    await this.props.getQuestions('round1', this.state.round1, 'easy')
+    await this.props.getQuestions('round2', this.state.round2, 'easy')
+    await this.props.getQuestions('round3', this.state.round3, 'medium')
+    await this.props.getQuestions('round4', this.state.round4, 'medium')
+    await this.props.getQuestions('round5', this.state.round5, 'hard')
+    await this.props.getQuestions('round6', this.state.round6, 'hard')
   }
 
   renderInputs = () => {
@@ -90,13 +90,11 @@ class Form extends React.Component {
         <section className='categories'>
           {this.renderInputs()}
         </section>
-        {/* <Link to='/play'> */}
         <input 
           className='play-btn'
           type='submit'
           value='Play!'
         />
-        {/* </Link> */}
       </form>
     )
   }

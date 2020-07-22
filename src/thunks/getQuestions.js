@@ -11,6 +11,7 @@ export const getQuestions = (round, questionCat, difficulty) => {
         throw Error(response.statusText)
       }
       const data = await response.json()
+      console.log('round', round)
       dispatch(isLoading(false))
       dispatch(setQuestions({[round]: data.results }))
     } catch (error) {
