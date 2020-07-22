@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import TeachersPets from '../TeachersPets/TeachersPets';
-import Chalkboard from '../Chalkboard'
+import Chalkboard from '../Chalkboard/Chalkboard'
 
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
