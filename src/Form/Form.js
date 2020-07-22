@@ -29,20 +29,21 @@ class Form extends React.Component {
     let inputs = []
     for(let i = 1; i < 7; i++) {
       inputs.push(
-        <section className='round-label'>
-        <h3>{`Round ${i}`}</h3>
-        <select 
-          name={`round${i}`}
-          value={`this.state.round${i}`}
-          onChange={(e) => this.handleChange(e)}
-        >
-          <option value='history'>History</option>
-          <option value='geography'>Geography</option>
-          <option value='math'>Math</option>
-          <option value='art'>Art</option>
-          <option value='science & nature'>Science & Nature</option>
-          <option value='books'>Books</option>
-        </select>
+        <section className='round-label' key={i}>
+          <h3>{`Round ${i}`}</h3>
+          <select 
+            name={`round${i}`}
+            // value={``}
+            onChange={this.handleChange}
+          >
+            <option>Select a subject...</option>
+            <option value='history'>History</option>
+            <option value='geography'>Geography</option>
+            <option value='math'>Math</option>
+            <option value='art'>Art</option>
+            <option value='science & nature'>Science & Nature</option>
+            <option value='books'>Books</option>
+          </select>
         </section>
       )
     }
