@@ -24,10 +24,6 @@ class Form extends React.Component {
     console.log(name, 'NAME', value, 'VALUE')
     this.setState({ [name]: value })
   }
-  
-  updateValue = (e) => {
-    return e.target.value
-  }
 
   handleSubmit = (e) => {
     e.preventDefault()
