@@ -19,7 +19,7 @@ export const hasErrored = (state = '', action) => {
 export const setQuestions = (state = [], action) => {
   switch (action.type) {
     case 'SET_QUESTIONS':
-      return action.questions
+      return [...state, action.questions]
     default:
       return state
   }

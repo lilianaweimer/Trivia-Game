@@ -4,7 +4,6 @@ import Form from '../Form/Form';
 import TeachersPets from '../TeachersPets/TeachersPets';
 
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
 
 const App = () => {
   const game = false;
@@ -32,8 +31,9 @@ const App = () => {
   )
 }
 
-const mapStateToProps = ({ setPlayerName }) => ({
-  playerName: setPlayerName
+const mapStateToProps = ({ setPlayerName, setQuestions }) => ({
+  playerName: setPlayerName,
+  questions: setQuestions
 })
 
 export default connect(mapStateToProps)(App);

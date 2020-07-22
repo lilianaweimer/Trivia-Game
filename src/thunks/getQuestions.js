@@ -1,6 +1,6 @@
 import { isLoading, hasErrored, setQuestions } from '../actions'
 
-export const getQuestions = (questionCat, difficulty) => {
+export const getQuestions = (round, questionCat, difficulty) => {
   const url = `https://opentdb.com/api.php?amount=5&category=${questionCat}&difficulty=${difficulty}&type=multiple`
   
   return async (dispatch) =>  {
@@ -12,7 +12,7 @@ export const getQuestions = (questionCat, difficulty) => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setQuestions(data))
+      dispatch(setQuestions({[round]: data.results }))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

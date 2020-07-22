@@ -1,6 +1,9 @@
 import React from  'react'
 import './Form.css'
+import thunk from 'redux-thunk'
+
 import { setPlayerName } from '../actions'
+import { getQuestions } from '../thunks/getQuestions'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -28,6 +31,16 @@ class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.setPlayerName(this.state.name)
+    this.getAllQuestions()
+  }
+
+  getAllQuestions = () => {
+    this.props.getQuestions('round1', this.state.round1, 'easy')
+    this.props.getQuestions('round2', this.state.round2, 'easy')
+    this.props.getQuestions('round3', this.state.round3, 'medium')
+    this.props.getQuestions('round4', this.state.round4, 'medium')
+    this.props.getQuestions('round5', this.state.round5, 'hard')
+    this.props.getQuestions('round6', this.state.round6, 'hard')
   }
 
   renderInputs = () => {
@@ -83,8 +96,17 @@ class Form extends React.Component {
   }
 }
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getQuestions: (cat, diff) => dispatch(getQuestions(cat, diff)),
+//     setPlayerName: () => dispatch(setPlayerName())
+//   }
+// }
+
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setPlayerName }, dispatch)
+  bindActionCreators({ setPlayerName, getQuestions }, dispatch)
 )
+
+
 
 export default connect(null, mapDispatchToProps)(Form)
