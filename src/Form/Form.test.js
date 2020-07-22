@@ -28,14 +28,31 @@ describe('Form', () => {
     });
 
     it('should render all form inputs', () => {
-        const { getByText, getByPlaceholderText } = render(
+        const { getByTestId, getByPlaceholderText, getByRole } = render(
             <BrowserRouter>
                 <Provider store={store}>
                     <Form />
                 </Provider>
             </BrowserRouter>);
 
-        const nameInput = getByPlaceholderText('Name')
+        const nameInput = getByPlaceholderText('Name');
+        const roundOne = getByTestId('round1');
+        const roundTwo = getByTestId('round2');
+        const roundThree = getByTestId('round3');
+        const roundFour = getByTestId('round4');
+        const roundFive = getByTestId('round5');
+        const roundSix = getByTestId('round6');
+        const playButton = getByRole('button');
+
+        expect(nameInput).toBeInTheDocument();
+        expect(roundOne).toBeInTheDocument();
+        expect(roundTwo).toBeInTheDocument();
+        expect(roundThree).toBeInTheDocument();
+        expect(roundFour).toBeInTheDocument();
+        expect(roundFive).toBeInTheDocument();
+        expect(roundSix).toBeInTheDocument();
+        expect(playButton).toBeInTheDocument();
+
     });
 
 });

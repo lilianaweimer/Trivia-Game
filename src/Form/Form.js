@@ -52,6 +52,7 @@ class Form extends React.Component {
           <select 
             name={`round${i}`}
             onChange={this.handleChange}
+            data-testid={`round${i}`}
           >
             <option>Select a subject...</option>
             <option value='23'>History</option>
