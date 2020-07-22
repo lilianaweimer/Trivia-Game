@@ -14,17 +14,17 @@ const App = () => {
             <div className='category'>Category</div>
             <div className='lives'>Lives</div>
           </section>
-        <section className='body'>
-          <div className='chalkboard'>Chalkboard</div>
-        </section>
-      </div>
-    </main>
+          <section className='body'>
+            <div className='chalkboard'>Chalkboard</div>
+          </section>
+        </div>
+      </main>
     )
   }
   
   return (
     <main className='App'>
-    <Form />
+      <Form />
     </main>
   )
 }

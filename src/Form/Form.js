@@ -12,25 +12,25 @@ class Form extends React.Component {
   renderInputs = () => {
     return (
       <select>
-          <option>
-            History
-          </option>
-          <option>
-            Geography
-          </option>
-          <option>
-            Math
-          </option>
-          <option>
-            Art
-          </option>
-          <option>
-            Science & Nature
-          </option>
-          <option>
-            Books
-          </option>
-        </select>
+        <option>
+          History
+        </option>
+        <option>
+          Geography
+        </option>
+        <option>
+          Math
+        </option>
+        <option>
+          Art
+        </option>
+        <option>
+          Science & Nature
+        </option>
+        <option>
+          Books
+        </option>
+      </select>
     )
   }
 
