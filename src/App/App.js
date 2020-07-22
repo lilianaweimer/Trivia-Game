@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Form from '../Form/Form'
+import Form from '../Form/Form';
+import TeachersPets from '../TeachersPets/TeachersPets';
 
 const App = () => {
   const game = false;

@@ -1,0 +1,16 @@
+.scoreboard {
+    margin: 0 auto;
+    width: 75%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    height: 75%;
+}
+
+.scoreboard-list {
+    list-style: none;
+    margin: 20px;
+    /* replace bullet points with little images? */
+}
