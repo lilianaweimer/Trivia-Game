@@ -8,23 +8,23 @@ import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
 const App = () => {
-  const game = false;
-  if(game) {
-    return (
-      <main className='App'>
-        <div className='Page'>
-          <header className='header'>
-            <div className='question-number'>Question Number</div>
-            <div className='category'>Category</div>
-            <div className='lives'>Lives</div>
-          </header>
-          <section className='body'>
-            <div className='chalkboard'>Chalkboard</div>
-          </section>
-        </div>
-      </main>
-    )
-  }
+  // const game = false;
+  // if(game) {
+  //   return (
+  //     <main className='App'>
+  //       <div className='Page'>
+  //         <header className='header'>
+  //           <div className='question-number'>Question Number</div>
+  //           <div className='category'>Category</div>
+  //           <div className='lives'>Lives</div>
+  //         </header>
+  //         <section className='body'>
+  //           <div className='chalkboard'>Chalkboard</div>
+  //         </section>
+  //       </div>
+  //     </main>
+  //   )
+  // }
   
   return (
     <main className='App'>
@@ -32,7 +32,7 @@ const App = () => {
         <Route exact path='/'>
           <Form />
         </Route>
-        <Route>
+        <Route path='/play'>
           <Chalkboard />
         </Route>
       </Switch>

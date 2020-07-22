@@ -2,6 +2,7 @@ import React from  'react'
 import './Form.css'
 import thunk from 'redux-thunk'
 
+import { Link, withRouter } from 'react-router-dom'
 import { setPlayerName } from '../actions'
 import { getQuestions } from '../thunks/getQuestions'
 
@@ -32,6 +33,7 @@ class Form extends React.Component {
     e.preventDefault()
     this.props.setPlayerName(this.state.name)
     this.getAllQuestions()
+    this.props.history.push('/play')
   }
 
   getAllQuestions = () => {
@@ -88,11 +90,13 @@ class Form extends React.Component {
         <section className='categories'>
           {this.renderInputs()}
         </section>
+        {/* <Link to='/play'> */}
         <input 
           className='play-btn'
           type='submit'
           value='Play!'
         />
+        {/* </Link> */}
       </form>
     )
   }
@@ -111,4 +115,4 @@ const mapDispatchToProps = dispatch => (
 
 
 
-export default connect(null, mapDispatchToProps)(Form)
+export default connect(null, mapDispatchToProps)(withRouter(Form))
