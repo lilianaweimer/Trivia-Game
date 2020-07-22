@@ -3,6 +3,9 @@ import './App.css';
 import Form from '../Form/Form';
 import TeachersPets from '../TeachersPets/TeachersPets';
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+
 const App = () => {
   const game = false;
   if(game) {
@@ -28,4 +31,9 @@ const App = () => {
     </main>
   )
 }
-export default App;
+
+const mapStateToProps = ({ setPlayerName }) => ({
+  playerName: setPlayerName
+})
+
+export default connect(mapStateToProps)(App);

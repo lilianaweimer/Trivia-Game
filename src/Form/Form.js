@@ -1,5 +1,9 @@
 import React from  'react'
 import './Form.css'
+import { setPlayerName } from '../actions'
+
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class Form extends React.Component {
   constructor() {
@@ -25,6 +29,11 @@ class Form extends React.Component {
     return e.target.value
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.setPlayerName(this.state.name)
+  }
+
   renderInputs = () => {
     let inputs = []
     for(let i = 1; i < 7; i++) {
@@ -33,16 +42,15 @@ class Form extends React.Component {
           <h3>{`Round ${i}`}</h3>
           <select 
             name={`round${i}`}
-            // value={``}
             onChange={this.handleChange}
           >
             <option>Select a subject...</option>
-            <option value='history'>History</option>
-            <option value='geography'>Geography</option>
-            <option value='math'>Math</option>
-            <option value='art'>Art</option>
-            <option value='science & nature'>Science & Nature</option>
-            <option value='books'>Books</option>
+            <option value='23'>History</option>
+            <option value='22'>Geography</option>
+            <option value='19'>Math</option>
+            <option value='25'>Art</option>
+            <option value='17'>Science & Nature</option>
+            <option value='10'>Books</option>
           </select>
         </section>
       )
@@ -52,7 +60,10 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form className='start-game-form'>
+      <form 
+        className='start-game-form'
+        onSubmit={this.handleSubmit}
+      >
         <h1>Welcome to BlahBlah</h1>
         <label className='player-input'>
           Player:
@@ -70,71 +81,14 @@ class Form extends React.Component {
           className='play-btn'
           type='submit'
           value='Play!'
-        /> 
-        {/* <section className='categories'>
-          <label 
-            className='round-label' 
-            // name='round1'
-            // value={this.state.round1}
-            // onChange={(e) => this.handleChange(e)}
-          >
-            Round 1: 
-            {this.renderInputs()}
-          </label>
-          <label 
-            className='round-label' 
-            name='round2'
-            value={this.state.round2}
-            onChange={(e) => this.handleChange(e)}
-          >
-            Round 2: 
-            {this.renderInputs()}
-          </label>
-          <label 
-            className='round-label' 
-            name='round3'
-            value={this.state.round3}
-            onChange={(e) => this.handleChange(e)}
-          >
-            Round 3: 
-            {this.renderInputs()}
-          </label>
-          <label 
-            className='round-label' 
-            name='round4'
-            value={this.state.round4}
-            onChange={(e) => this.handleChange(e)}
-          >
-            Round 4: 
-            {this.renderInputs()}
-          </label>
-          <label 
-            className='round-label' 
-            name='round5'
-            value={this.state.round5}
-            onChange={(e) => this.handleChange(e)}
-          >
-            Round 5: 
-            {this.renderInputs()}
-          </label>
-          <label 
-            className='round-label' 
-            name='round6'
-            value={this.state.round6}
-            onChange={(e) => this.handleChange(e)}
-          >
-            Round 6: 
-            {this.renderInputs()}
-          </label>
-        </section>
-        <input 
-          className='play-btn'
-          type='submit'
-          value='Play!'
-        /> */}
+        />
       </form>
     )
   }
 }
 
-export default Form
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ setPlayerName }, dispatch)
+)
+
+export default connect(null, mapDispatchToProps)(Form)
