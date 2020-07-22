@@ -24,7 +24,7 @@ class Form extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    console.log(name, 'NAME', value, 'VALUE')
+    // console.log(name, 'NAME', value, 'VALUE')
     this.setState({ [name]: value })
   }
 
