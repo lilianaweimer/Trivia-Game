@@ -18,22 +18,7 @@ Please check the type of change your PR introduces:
 ## What is the current behavior?
 <!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
 - 
-## What is the new behavior?
-<!-- Please describe the behavior or changes that are being added by this PR. -->
--
 
-
-## What is the current behavior?
-<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
-- 
-
-## What is the new behavior?
-<!-- Please describe the behavior or changes that are being added by this PR. -->
--
-
-## What is the current behavior?
-<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
-- 
 ## What is the new behavior?
 <!-- Please describe the behavior or changes that are being added by this PR. -->
 -
