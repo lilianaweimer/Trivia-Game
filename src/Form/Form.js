@@ -24,7 +24,7 @@ class Form extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    console.log(name, 'NAME', value, 'VALUE')
+    // console.log(name, 'NAME', value, 'VALUE')
     this.setState({ [name]: value })
   }
 
@@ -52,6 +52,7 @@ class Form extends React.Component {
           <select 
             name={`round${i}`}
             onChange={this.handleChange}
+            data-testid={`round${i}`}
           >
             <option>Select a subject...</option>
             <option value='23'>History</option>
@@ -79,6 +80,7 @@ class Form extends React.Component {
           <input 
             type='text'
             name='name'
+            placeholder='Name'
             value={this.state.name}
             onChange={(e) => this.handleChange(e)}
           />
