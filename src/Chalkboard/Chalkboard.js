@@ -25,9 +25,12 @@ class Chalkboard extends React.Component {
     }
   }
   
-  incrementQuestion = () => {
-    this.setState({ isCorrect: null})
-    this.props.setCurrentQuestion()
+  incrementQuestion = async () => {
+    await this.props.incrementCurrentQuestion()
+    this.setState({ 
+      question: this.props.questions[this.props.currentRound][this.props.currentQuestion],
+      isCorrect: null
+    })
   }
 
 
@@ -50,7 +53,7 @@ class Chalkboard extends React.Component {
               <AnswerModal 
                 correct={true}
                 correctAnswer={this.state.question.correct_answer}
-                incrementCurrentQuestion={this.props.incrementCurrentQuestion}
+                incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
               />
             }
@@ -58,7 +61,7 @@ class Chalkboard extends React.Component {
               <AnswerModal 
                 correct={false}
                 correctAnswer={this.state.question.correct_answer}
-                incrementCurrentQuestion={this.props.incrementCurrentQuestion}
+                incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
               />
             }
