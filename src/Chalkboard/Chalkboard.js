@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
-import { incrementCurrentQuestion, resetCurrentQuestion, incrementCurrentRound } from '../actions'
+import { incrementCurrentQuestion, resetCurrentQuestion, incrementCurrentRound, decrementLives } from '../actions'
 import { bindActionCreators } from 'redux'
 
 class Chalkboard extends React.Component {
@@ -22,6 +22,7 @@ class Chalkboard extends React.Component {
       this.setState({isCorrect: true})
     } else {
       this.setState({isCorrect: false})
+      this.props.decrementLives()
     }
   }
   
@@ -86,7 +87,14 @@ const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setC
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ incrementCurrentQuestion, resetCurrentQuestion, incrementCurrentRound }, dispatch)
+  bindActionCreators(
+    { 
+      incrementCurrentQuestion, 
+      resetCurrentQuestion, 
+      incrementCurrentRound,
+      decrementLives 
+    }, dispatch
+  )
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chalkboard)

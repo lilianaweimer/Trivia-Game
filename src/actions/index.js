@@ -20,9 +20,8 @@ export const setScore = score => ({
   score
 })
 
-export const setLives = lives => ({
-  type: 'SET_LIVES',
-  lives
+export const decrementLives = () => ({
+  type: 'DECREMENT_LIVES',
 })
 
 export const setPlayerName = playerName => ({
