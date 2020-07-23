@@ -3,19 +3,19 @@ import { connect } from 'react-redux'
 import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
-import AnswerModal from '../AnswerModal'
+import AnswerModal from '../AnswerModal/AnswerModal'
 import { setLives } from '../actions'
 
 class Chalkboard extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state={
       question: this.props.questions[this.props.currentRound][this.props.currentQuestion]
     }
   }
   
   checkAnswer = (e) => {
-    if(e.target.value === this.state.question.correct_answer) {
+    if(e.target.id === this.state.question.correct_answer) {
       return (
         <AnswerModal 
           correct={true}
@@ -36,11 +36,18 @@ class Chalkboard extends React.Component {
     return (
       <main className='App'>
         <div className='Page'>
-          <Header question={this.state.question} questionCounter={this.props.currentQuestion} lives={this.props.lives}/>
+          <Header 
+            question={this.state.question} 
+            questionCounter={this.props.currentQuestion} 
+            lives={this.props.lives}
+          />
           <section className='body'>
             <section className='chalkboard'>
-              <Question question={question.question} />
-              <Answers question={question} />
+              <Question question={this.state.question.question} />
+              <Answers 
+                question={this.state.question} 
+                checkAnswer={this.checkAnswer}
+              />
             </section>
           </section>
         </div>

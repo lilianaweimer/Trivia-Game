@@ -1,4 +1,5 @@
 import React from 'react'
+import './AnswerModal.css'
 
 const AnswerModal = (props) => {
   if (props.correct) {
@@ -9,10 +10,12 @@ const AnswerModal = (props) => {
       </section>
     )
   } else {
-    <section className='modal'>
-      <p>Incorrect.  The correct answer was: {props.correctAnswer}</p>
-      <button>Next Question</button>
-    </section>
+    return (
+      <section className='modal'>
+        <p>Incorrect.  The correct answer was: {props.correctAnswer}</p>
+        <button>Next Question</button>
+      </section>
+    )
   }
 }
 
