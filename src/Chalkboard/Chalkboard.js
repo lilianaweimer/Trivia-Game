@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
+import GameOver from '../GameOver/GameOver'
 import { bindActionCreators } from 'redux'
 import { 
   incrementCurrentQuestion, 
@@ -19,7 +20,8 @@ class Chalkboard extends React.Component {
     super(props)
     this.state={
       question: this.props.questions[this.props.currentRound][this.props.currentQuestion],
-      isCorrect: null
+      isCorrect: null,
+      gameOver: false
     }
   }
   
@@ -32,6 +34,18 @@ class Chalkboard extends React.Component {
       this.removePoints()
       this.props.decrementLives()
     }
+  }
+
+  endGame = () => {
+    if (this.props.lives <= 0 || (this.props.currentRound === 5 && this.props.currentQuestion === 4)) {
+      return (
+        <GameOver 
+          lives={this.props.lives}
+          score={this.props.score}
+        />
+      )
+    }
+
   }
 
   addPoints = () => {
@@ -92,6 +106,7 @@ class Chalkboard extends React.Component {
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
               />
             }
+            {this.endGame()}
           </section>
         </section>
       </div>
