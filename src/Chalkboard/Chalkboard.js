@@ -10,31 +10,36 @@ class Chalkboard extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      question: this.props.questions[this.props.currentRound][this.props.currentQuestion]
+      question: this.props.questions[this.props.currentRound][this.props.currentQuestion],
+      isCorrect: null
     }
   }
   
   checkAnswer = (e) => {
+    console.log(e.target, 'CHECK ANSWER FN')
     if(e.target.id === this.state.question.correct_answer) {
-      return (
-        <AnswerModal 
-          correct={true}
-          correctAnswer={this.state.question.correct_answer}
-        />
-      )
+      this.setState({isCorrect: true})
     } else {
-      return (
-        <AnswerModal 
-          correct={false}
-          correctAnswer={this.state.question.correct_answer}
-        />
-      )
+      this.setState({isCorrect: false})
     }
+    //   return (
+    //     <AnswerModal 
+    //       correct={true}
+    //       correctAnswer={this.state.question.correct_answer}
+    //     />
+    //   )
+    // } 
+    // return (
+    //   <AnswerModal 
+    //     correct={false}
+    //     correctAnswer={this.state.question.correct_answer}
+    //   />
+    // )
   }
 
   render() {
     return (
-      <main className='App'>
+      // <main className='App'>
         <div className='Page'>
           <Header 
             question={this.state.question} 
@@ -48,10 +53,21 @@ class Chalkboard extends React.Component {
                 question={this.state.question} 
                 checkAnswer={this.checkAnswer}
               />
+              {this.state.isCorrect && 
+                <AnswerModal 
+                  correct={true}
+                  correctAnswer={this.state.question.correct_answer}
+                />}
+              {this.state.isCorrect === false &&
+                <AnswerModal 
+                  correct={false}
+                  correctAnswer={this.state.question.correct_answer}
+                />
+              }
             </section>
           </section>
         </div>
-      </main>
+      // </main>
     )
   }
 }
