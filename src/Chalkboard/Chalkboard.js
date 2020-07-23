@@ -22,52 +22,43 @@ class Chalkboard extends React.Component {
     } else {
       this.setState({isCorrect: false})
     }
-    //   return (
-    //     <AnswerModal 
-    //       correct={true}
-    //       correctAnswer={this.state.question.correct_answer}
-    //     />
-    //   )
-    // } 
-    // return (
-    //   <AnswerModal 
-    //     correct={false}
-    //     correctAnswer={this.state.question.correct_answer}
-    //   />
-    // )
   }
+  
+  incrementQuestion = () => {
+    this.setState({ isCorrect: null})
+    this.props.setCurrentQuestion()
+  }
+
 
   render() {
     return (
-      // <main className='App'>
-        <div className='Page'>
-          <Header 
-            question={this.state.question} 
-            questionCounter={this.props.currentQuestion} 
-            lives={this.props.lives}
-          />
-          <section className='body'>
-            <section className='chalkboard'>
-              <Question question={this.state.question.question} />
-              <Answers 
-                question={this.state.question} 
-                checkAnswer={this.checkAnswer}
+      <div className='Page'>
+        <Header 
+          question={this.state.question} 
+          questionCounter={this.props.currentQuestion} 
+          lives={this.props.lives}
+        />
+        <section className='body'>
+          <section className='chalkboard'>
+            <Question question={this.state.question.question} />
+            <Answers 
+              question={this.state.question} 
+              checkAnswer={this.checkAnswer}
+            />
+            {this.state.isCorrect && 
+              <AnswerModal 
+                correct={true}
+                correctAnswer={this.state.question.correct_answer}
+              />}
+            {this.state.isCorrect === false &&
+              <AnswerModal 
+                correct={false}
+                correctAnswer={this.state.question.correct_answer}
               />
-              {this.state.isCorrect && 
-                <AnswerModal 
-                  correct={true}
-                  correctAnswer={this.state.question.correct_answer}
-                />}
-              {this.state.isCorrect === false &&
-                <AnswerModal 
-                  correct={false}
-                  correctAnswer={this.state.question.correct_answer}
-                />
-              }
-            </section>
+            }
           </section>
-        </div>
-      // </main>
+        </section>
+      </div>
     )
   }
 }

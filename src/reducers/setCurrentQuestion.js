@@ -1,7 +1,11 @@
-export const setCurrentQuestion = (state = 0, action) => {
+const initialState = 0
+
+export const setCurrentQuestion = (state = initialState, action) => {
   switch(action.type) {
-    case 'SET_CURRENT_QUESTION':
-      return {state: state + 1}
+    case 'INCREMENT_CURRENT_QUESTION':
+      return state + 1
+    case 'RESET_CURRENT_QUESTION':
+      return initialState
     default:
       return state
   }

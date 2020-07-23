@@ -7,9 +7,12 @@ export const setCurrentRound = () => ({
   type: 'SET_CURRENT_ROUND',
 })
 
-export const setCurrentQuestion = currentQuestion => ({
-  type: 'SET_CURRENT_QUESTION',
-  currentQuestion
+export const incrementCurrentQuestion = () => ({
+  type: 'INCREMENT_CURRENT_QUESTION',
+})
+
+export const resetCurrentQuestion = () => ({
+  type: 'RESET_CURRENT_QUESTION',
 })
 
 export const setScore = score => ({
