@@ -3,9 +3,8 @@ export const setQuestions = questions => ({
   questions
 })
 
-export const setCurrentRound = currentRound => ({
+export const setCurrentRound = () => ({
   type: 'SET_CURRENT_ROUND',
-  currentRound
 })
 
 export const setCurrentQuestion = currentQuestion => ({

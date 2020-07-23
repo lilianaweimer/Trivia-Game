@@ -6,33 +6,28 @@ import Chalkboard from '../Chalkboard/Chalkboard'
 
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+import { hasErrored } from '../actions';
+// import { setCurrentRound } from '../actions';
 
-const App = () => {
-  const game = false;
-  if(game) {
+const App = (props) => {
+  if(props.error) {
     return (
-      <main className='App'>
-        <div className='Page'>
-          <header className='header'>
-            <div className='question-number'>Question Number</div>
-            <div className='category'>Category</div>
-            <div className='lives'>Lives</div>
-          </header>
-          <section className='body'>
-            <div className='chalkboard'>Chalkboard</div>
-          </section>
-        </div>
-      </main>
+      <p>{props.error}</p>
     )
   }
-  
+  if(props.isLoading) {
+    return (
+      <p>Loading...</p>
+    )
+  }
+
   return (
     <main className='App'>
       <Switch>
         <Route exact path='/'>
           <Form />
         </Route>
-        <Route>
+        <Route path='/play'>
           <Chalkboard />
         </Route>
       </Switch>
@@ -41,9 +36,14 @@ const App = () => {
   )
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives }) => ({
   playerName: setPlayerName,
-  questions: setQuestions
+  questions: setQuestions,
+  currentQuestion: setCurrentQuestion,
+  currentRound: setCurrentRound,
+  isLoading: isLoading,
+  error: hasErrored,
+  lives: setLives
 })
 
 export default connect(mapStateToProps)(App);

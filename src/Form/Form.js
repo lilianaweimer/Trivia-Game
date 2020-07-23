@@ -2,7 +2,8 @@ import React from  'react'
 import './Form.css'
 import thunk from 'redux-thunk'
 
-import { setPlayerName } from '../actions'
+import { Link, withRouter } from 'react-router-dom'
+import { setPlayerName, isLoading } from '../actions'
 import { getQuestions } from '../thunks/getQuestions'
 
 import { bindActionCreators } from 'redux'
@@ -32,15 +33,18 @@ class Form extends React.Component {
     e.preventDefault()
     this.props.setPlayerName(this.state.name)
     this.getAllQuestions()
+    this.props.history.push('/play')
   }
 
-  getAllQuestions = () => {
-    this.props.getQuestions('round1', this.state.round1, 'easy')
-    this.props.getQuestions('round2', this.state.round2, 'easy')
-    this.props.getQuestions('round3', this.state.round3, 'medium')
-    this.props.getQuestions('round4', this.state.round4, 'medium')
-    this.props.getQuestions('round5', this.state.round5, 'hard')
-    this.props.getQuestions('round6', this.state.round6, 'hard')
+  getAllQuestions = async () => {
+    this.props.isLoading(true)
+    await this.props.getQuestions(this.state.round1, 'easy')
+    await this.props.getQuestions(this.state.round2, 'easy')
+    await this.props.getQuestions(this.state.round3, 'medium')
+    await this.props.getQuestions(this.state.round4, 'medium')
+    await this.props.getQuestions(this.state.round5, 'hard')
+    await this.props.getQuestions(this.state.round6, 'hard')
+    this.props.isLoading(false)
   }
 
   renderInputs = () => {
@@ -106,9 +110,9 @@ class Form extends React.Component {
 // }
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setPlayerName, getQuestions }, dispatch)
+  bindActionCreators({ setPlayerName, getQuestions, isLoading }, dispatch)
 )
 
 
 
-export default connect(null, mapDispatchToProps)(Form)
+export default connect(null, mapDispatchToProps)(withRouter(Form))
