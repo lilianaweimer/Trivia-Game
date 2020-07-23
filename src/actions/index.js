@@ -3,8 +3,8 @@ export const setQuestions = questions => ({
   questions
 })
 
-export const setCurrentRound = () => ({
-  type: 'SET_CURRENT_ROUND',
+export const incrementCurrentRound = () => ({
+  type: 'INCREMENT_CURRENT_ROUND',
 })
 
 export const incrementCurrentQuestion = () => ({

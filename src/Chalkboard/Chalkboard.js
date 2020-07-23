@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
-import { incrementCurrentQuestion, resetCurrentQuestion } from '../actions'
+import { incrementCurrentQuestion, resetCurrentQuestion, incrementCurrentRound } from '../actions'
 import { bindActionCreators } from 'redux'
 
 class Chalkboard extends React.Component {
@@ -26,13 +26,17 @@ class Chalkboard extends React.Component {
   }
   
   incrementQuestion = async () => {
-    await this.props.incrementCurrentQuestion()
+    if (this.props.currentQuestion < 4) {
+      await this.props.incrementCurrentQuestion()
+    } else {
+      await this.props.resetCurrentQuestion()
+      await this.props.incrementCurrentRound()
+    }
     this.setState({ 
       question: this.props.questions[this.props.currentRound][this.props.currentQuestion],
       isCorrect: null
     })
   }
-
 
   render() {
     return (
@@ -41,6 +45,7 @@ class Chalkboard extends React.Component {
           question={this.state.question} 
           questionCounter={this.props.currentQuestion} 
           lives={this.props.lives}
+          currentRound={this.props.currentRound}
         />
         <section className='body'>
           <section className='chalkboard'>
@@ -81,7 +86,7 @@ const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setC
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ incrementCurrentQuestion, resetCurrentQuestion }, dispatch)
+  bindActionCreators({ incrementCurrentQuestion, resetCurrentQuestion, incrementCurrentRound }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chalkboard)
