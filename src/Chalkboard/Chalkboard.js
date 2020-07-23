@@ -37,7 +37,8 @@ class Chalkboard extends React.Component {
   }
 
   endGame = () => {
-    if (this.props.lives <= 0 || (this.props.currentRound === 5 && this.props.currentQuestion === 4)) {
+    //NEED TO FIX SECOND PART OF CONDITIONAL
+    if (this.props.lives <= 0 || (this.props.currentRound === 5)) {
       return (
         <GameOver 
           lives={this.props.lives}
@@ -45,7 +46,6 @@ class Chalkboard extends React.Component {
         />
       )
     }
-
   }
 
   addPoints = () => {
