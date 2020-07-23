@@ -7,15 +7,13 @@ class Chalkboard extends React.Component {
 
 
   render() {
-    console.log('currentRound', this.props.currentRound)
-    // console.log('r)
     return (
       <main className='App'>
         <div className='Page'>
           <Header/>
           <section className='body'>
             <section className='chalkboard'>
-             {/* <Question question={this.props.questions[this.props.currentRound][this.props.currentQuestion].question}/> */}
+             <Question question={this.props.questions[this.props.currentRound][this.props.currentQuestion].question}/>
             </section>
           </section>
         </div>
