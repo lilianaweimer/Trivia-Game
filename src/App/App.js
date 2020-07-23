@@ -6,9 +6,10 @@ import Chalkboard from '../Chalkboard/Chalkboard'
 
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+// import { setCurrentRound } from '../actions';
 
 const App = () => {
-    
+
   return (
     <main className='App'>
       <Switch>
@@ -24,9 +25,11 @@ const App = () => {
   )
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound }) => ({
   playerName: setPlayerName,
-  questions: setQuestions
+  questions: setQuestions,
+  currentQuestion: setCurrentQuestion,
+  currentRound: setCurrentRound
 })
 
 export default connect(mapStateToProps)(App);
