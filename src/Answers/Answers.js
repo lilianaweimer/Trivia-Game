@@ -9,7 +9,7 @@ const Answers = (props) => {
   const mappedAnswers = shuffledAnswers.map((answer, i) => {
     return (
       <>
-        <p key={i}value={answer}>{`${answer}`}</p>
+        <p key={i} value={answer}>{`${answer}`}</p>
       </>
     )
   })
