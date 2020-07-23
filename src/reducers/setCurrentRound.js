@@ -1,7 +1,7 @@
-export const setCurrentRound= (state = 0, action) => {
+export const setCurrentRound = (state = 0, action) => {
   switch(action.type) {
     case 'SET_CURRENT_ROUND':
-      return {state: state + 1}
+      return state + 1
     default:
       return state
   }

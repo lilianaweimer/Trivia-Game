@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
+import { setLives } from '../actions'
 
 class Chalkboard extends React.Component {
 
@@ -12,7 +13,7 @@ class Chalkboard extends React.Component {
     return (
       <main className='App'>
         <div className='Page'>
-          <Header question={question} questionCounter={this.props.currentQuestion}/>
+          <Header question={question} questionCounter={this.props.currentQuestion} lives={this.props.lives}/>
           <section className='body'>
             <section className='chalkboard'>
             <Question question={question.question} />
@@ -25,11 +26,12 @@ class Chalkboard extends React.Component {
   }
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, setLives }) => ({
   playerName: setPlayerName,
   questions: setQuestions,
   currentQuestion: setCurrentQuestion,
-  currentRound: setCurrentRound
+  currentRound: setCurrentRound,
+  lives: setLives
 })
 
 export default connect(mapStateToProps)(Chalkboard)

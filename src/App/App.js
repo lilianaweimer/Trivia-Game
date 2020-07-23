@@ -36,13 +36,14 @@ const App = (props) => {
   )
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives }) => ({
   playerName: setPlayerName,
   questions: setQuestions,
   currentQuestion: setCurrentQuestion,
   currentRound: setCurrentRound,
   isLoading: isLoading,
-  error: hasErrored
+  error: hasErrored,
+  lives: setLives
 })
 
 export default connect(mapStateToProps)(App);

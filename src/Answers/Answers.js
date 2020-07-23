@@ -8,7 +8,9 @@ const Answers = (props) => {
   const shuffledAnswers = allAnswers.sort(() => .5 - Math.random())
   const mappedAnswers = shuffledAnswers.map((answer, i) => {
     return (
-      <p key={i}value={answer}>{answer}</p>
+      <>
+        <p key={i}value={answer}>{`${answer}`}</p>
+      </>
     )
   })
   return (
