@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const Question = (props) => {
   return (
-    <section class='question-container'>
+    <section className='question-container'>
       <p>{props.question}</p>
     </section>
   )

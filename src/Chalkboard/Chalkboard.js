@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../Header/Header'
 import Question from '../Question/Question'
+import Answers from '../Answers/Answers'
 
 class Chalkboard extends React.Component {
 
@@ -13,7 +14,10 @@ class Chalkboard extends React.Component {
           <Header/>
           <section className='body'>
             <section className='chalkboard'>
-             <Question question={this.props.questions[this.props.currentRound][this.props.currentQuestion].question}/>
+            <Question 
+              question={this.props.questions[this.props.currentRound][this.props.currentQuestion].question}
+            />
+            <Answers question={this.props.questions[this.props.currentRound][this.props.currentQuestion]} />
             </section>
           </section>
         </div>
