@@ -4,8 +4,15 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
-import { incrementCurrentQuestion, resetCurrentQuestion, incrementCurrentRound, decrementLives } from '../actions'
 import { bindActionCreators } from 'redux'
+import { 
+  incrementCurrentQuestion, 
+  resetCurrentQuestion, 
+  incrementCurrentRound, 
+  decrementLives,
+  incrementScore,
+  decrementScore 
+} from '../actions'
 
 class Chalkboard extends React.Component {
   constructor(props) {
@@ -17,13 +24,26 @@ class Chalkboard extends React.Component {
   }
   
   checkAnswer = (e) => {
-    console.log(e.target, 'CHECK ANSWER FN')
     if(e.target.id === this.state.question.correct_answer) {
       this.setState({isCorrect: true})
+      this.addPoints()
     } else {
       this.setState({isCorrect: false})
+      this.removePoints()
       this.props.decrementLives()
     }
+  }
+
+  addPoints = () => {
+    this.state.question.difficulty === 'easy' && this.props.incrementScore(50)
+    this.state.question.difficulty === 'medium' && this.props.incrementScore(100)
+    this.state.question.difficulty === 'hard' && this.props.incrementScore(150)
+  }
+
+  removePoints = () => {
+    this.state.question.difficulty === 'easy' && this.props.decrementScore(25)
+    this.state.question.difficulty === 'medium' && this.props.decrementScore(50)
+    this.state.question.difficulty === 'hard' && this.props.decrementScore(75)
   }
   
   incrementQuestion = async () => {
@@ -47,6 +67,7 @@ class Chalkboard extends React.Component {
           questionCounter={this.props.currentQuestion} 
           lives={this.props.lives}
           currentRound={this.props.currentRound}
+          score={this.props.score}
         />
         <section className='body'>
           <section className='chalkboard'>
@@ -78,12 +99,13 @@ class Chalkboard extends React.Component {
   }
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, setLives }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, setLives, setScore }) => ({
   playerName: setPlayerName,
   questions: setQuestions,
   currentQuestion: setCurrentQuestion,
   currentRound: setCurrentRound,
-  lives: setLives
+  lives: setLives,
+  score: setScore
 })
 
 const mapDispatchToProps = dispatch => (
@@ -92,7 +114,9 @@ const mapDispatchToProps = dispatch => (
       incrementCurrentQuestion, 
       resetCurrentQuestion, 
       incrementCurrentRound,
-      decrementLives 
+      decrementLives,
+      incrementScore,
+      decrementScore 
     }, dispatch
   )
 )
