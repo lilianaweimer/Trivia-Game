@@ -6,9 +6,15 @@ import Chalkboard from '../Chalkboard/Chalkboard'
 
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+import { hasErrored } from '../actions';
 // import { setCurrentRound } from '../actions';
 
-const App = () => {
+const App = (props) => {
+  if(props.isLoading) {
+    return (
+      <p>Loading...</p>
+    )
+  }
 
   return (
     <main className='App'>
@@ -25,11 +31,13 @@ const App = () => {
   )
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored }) => ({
   playerName: setPlayerName,
   questions: setQuestions,
   currentQuestion: setCurrentQuestion,
-  currentRound: setCurrentRound
+  currentRound: setCurrentRound,
+  isLoading: isLoading,
+  error: hasErrored
 })
 
 export default connect(mapStateToProps)(App);

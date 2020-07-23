@@ -1,20 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Header from '../Header/Header'
+import Question from '../Question/Question'
 
 class Chalkboard extends React.Component {
 
 
   render() {
+    console.log('currentRound', this.props.currentRound)
+    // console.log('r)
     return (
       <main className='App'>
         <div className='Page'>
-          <header className='header'>
-            <div className='question-number'>Question Number</div>
-            <div className='category'>Category</div>
-            <div className='lives'>Lives</div>
-          </header>
+          <Header/>
           <section className='body'>
-            <div className='chalkboard'>Chalkboard</div>
+            <section className='chalkboard'>
+             {/* <Question question={this.props.questions[this.props.currentRound][this.props.currentQuestion].question}/> */}
+            </section>
           </section>
         </div>
       </main>

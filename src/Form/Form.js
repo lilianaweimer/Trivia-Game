@@ -3,7 +3,7 @@ import './Form.css'
 import thunk from 'redux-thunk'
 
 import { Link, withRouter } from 'react-router-dom'
-import { setPlayerName } from '../actions'
+import { setPlayerName, isLoading } from '../actions'
 import { getQuestions } from '../thunks/getQuestions'
 
 import { bindActionCreators } from 'redux'
@@ -37,12 +37,14 @@ class Form extends React.Component {
   }
 
   getAllQuestions = async () => {
-    await this.props.getQuestions('round1', this.state.round1, 'easy')
-    await this.props.getQuestions('round2', this.state.round2, 'easy')
-    await this.props.getQuestions('round3', this.state.round3, 'medium')
-    await this.props.getQuestions('round4', this.state.round4, 'medium')
-    await this.props.getQuestions('round5', this.state.round5, 'hard')
-    await this.props.getQuestions('round6', this.state.round6, 'hard')
+    this.props.isLoading(true)
+    await this.props.getQuestions(this.state.round1, 'easy')
+    await this.props.getQuestions(this.state.round2, 'easy')
+    await this.props.getQuestions(this.state.round3, 'medium')
+    await this.props.getQuestions(this.state.round4, 'medium')
+    await this.props.getQuestions(this.state.round5, 'hard')
+    await this.props.getQuestions(this.state.round6, 'hard')
+    this.props.isLoading(false)
   }
 
   renderInputs = () => {
@@ -108,7 +110,7 @@ class Form extends React.Component {
 // }
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setPlayerName, getQuestions }, dispatch)
+  bindActionCreators({ setPlayerName, getQuestions, isLoading }, dispatch)
 )
 
 
