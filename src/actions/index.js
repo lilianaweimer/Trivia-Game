@@ -38,9 +38,7 @@ export const isPlaying = bool => ({
   isPlaying: bool
 })
 
-export const isLoading = bool => (
-console.log('Im running', bool),
-{
+export const isLoading = bool => ({
   type: 'IS_LOADING',
   isLoading: bool
 })

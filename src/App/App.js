@@ -10,6 +10,11 @@ import { hasErrored } from '../actions';
 // import { setCurrentRound } from '../actions';
 
 const App = (props) => {
+  if(props.error) {
+    return (
+      <p>{props.error}</p>
+    )
+  }
   if(props.isLoading) {
     return (
       <p>Loading...</p>
