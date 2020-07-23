@@ -8,16 +8,15 @@ class Chalkboard extends React.Component {
 
 
   render() {
+    const question = this.props.questions[this.props.currentRound][this.props.currentQuestion]
     return (
       <main className='App'>
         <div className='Page'>
-          <Header/>
+          <Header question={question} questionCounter={this.props.currentQuestion}/>
           <section className='body'>
             <section className='chalkboard'>
-            <Question 
-              question={this.props.questions[this.props.currentRound][this.props.currentQuestion].question}
-            />
-            <Answers question={this.props.questions[this.props.currentRound][this.props.currentQuestion]} />
+            <Question question={question.question} />
+            <Answers question={question} />
             </section>
           </section>
         </div>
