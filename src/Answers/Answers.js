@@ -8,9 +8,13 @@ const Answers = (props) => {
   const shuffledAnswers = allAnswers.sort(() => .5 - Math.random())
   const mappedAnswers = shuffledAnswers.map((answer, i) => {
     return (
-      <>
-        <p key={i}value={answer}>{`${answer}`}</p>
-      </>
+      <div 
+        key={i} 
+        id={answer}
+        onClick={e => props.checkAnswer(e)}
+      >
+        {`${answer}`}
+      </div>
     )
   })
   return (

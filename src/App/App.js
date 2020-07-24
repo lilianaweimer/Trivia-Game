@@ -31,7 +31,6 @@ const App = (props) => {
           <Chalkboard />
         </Route>
       </Switch>
-
     </main>
   )
 }

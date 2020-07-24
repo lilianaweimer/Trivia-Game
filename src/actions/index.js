@@ -3,23 +3,30 @@ export const setQuestions = questions => ({
   questions
 })
 
-export const setCurrentRound = () => ({
-  type: 'SET_CURRENT_ROUND',
+export const incrementCurrentRound = () => ({
+  type: 'INCREMENT_CURRENT_ROUND',
 })
 
-export const setCurrentQuestion = currentQuestion => ({
-  type: 'SET_CURRENT_QUESTION',
-  currentQuestion
+export const incrementCurrentQuestion = () => ({
+  type: 'INCREMENT_CURRENT_QUESTION',
 })
 
-export const setScore = score => ({
-  type: 'SET_SCORE',
+export const resetCurrentQuestion = () => ({
+  type: 'RESET_CURRENT_QUESTION',
+})
+
+export const incrementScore = score => ({
+  type: 'INCREMENT_SCORE',
   score
 })
 
-export const setLives = lives => ({
-  type: 'SET_LIVES',
-  lives
+export const decrementScore = score => ({
+  type: 'DECREMENT_SCORE',
+  score
+})
+
+export const decrementLives = () => ({
+  type: 'DECREMENT_LIVES',
 })
 
 export const setPlayerName = playerName => ({
