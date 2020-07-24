@@ -21,11 +21,15 @@ class Chalkboard extends React.Component {
     this.state={
       question: this.props.questions[this.props.currentRound][this.props.currentQuestion],
       isCorrect: null,
-      gameOver: false
+      gameOver: false,
+      answerCount: 0,
     }
   }
   
   checkAnswer = (e) => {
+    this.setState((prevState) => {
+      return { ...prevState, answerCount: prevState.answerCount + 1 }
+    })
     if(e.target.id === this.state.question.correct_answer) {
       this.setState({isCorrect: true})
       this.addPoints()
@@ -38,7 +42,7 @@ class Chalkboard extends React.Component {
 
   endGame = () => {
     //NEED TO FIX SECOND PART OF CONDITIONAL
-    if (this.props.lives <= 0 || (this.props.currentRound === 5)) {
+    if (this.props.lives <= 0 || this.state.answerCount === 5) {
       return (
         <GameOver 
           lives={this.props.lives}

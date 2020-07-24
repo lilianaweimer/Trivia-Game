@@ -15,6 +15,10 @@ export const resetCurrentQuestion = () => ({
   type: 'RESET_CURRENT_QUESTION',
 })
 
+export const removeAnsweredQuestion = () => ({
+  type: 'REMOVE_ANSWERED_QUESTION',
+})
+
 export const incrementScore = score => ({
   type: 'INCREMENT_SCORE',
   score

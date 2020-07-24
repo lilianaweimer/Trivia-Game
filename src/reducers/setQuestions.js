@@ -20,6 +20,8 @@ export const setQuestions = (state = [], action) => {
   switch (action.type) {
     case 'SET_QUESTIONS':
       return [...state, action.questions]
+    case 'REMOVE_ANSWERED_QUESTION':
+      return 
     default:
       return state
   }
