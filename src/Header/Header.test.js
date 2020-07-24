@@ -15,7 +15,7 @@ describe('Header', () => {
 	it('should render without crashing', () => {
 		const { getByText } = render(
 				<BrowserRouter>
-						<Provider store={store}>
+					<Provider store={store}>
             <Header 
               question={{category: 'test category'}}
               questionCounter={1} 
@@ -23,7 +23,7 @@ describe('Header', () => {
               currentRound={3}
               score={4}
             />
-						</Provider>
+					</Provider>
 				</BrowserRouter>);
 		
 
