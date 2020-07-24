@@ -25,7 +25,6 @@ class Form extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    // console.log(name, 'NAME', value, 'VALUE')
     this.setState({ [name]: value })
   }
 
@@ -39,11 +38,11 @@ class Form extends React.Component {
   getAllQuestions = async () => {
     this.props.isLoading(true)
     await this.props.getQuestions(this.state.round1, 'easy')
-    await this.props.getQuestions(this.state.round2, 'easy')
-    await this.props.getQuestions(this.state.round3, 'medium')
-    await this.props.getQuestions(this.state.round4, 'medium')
-    await this.props.getQuestions(this.state.round5, 'hard')
-    await this.props.getQuestions(this.state.round6, 'hard')
+    // await this.props.getQuestions(this.state.round2, 'easy')
+    // await this.props.getQuestions(this.state.round3, 'medium')
+    // await this.props.getQuestions(this.state.round4, 'medium')
+    // await this.props.getQuestions(this.state.round5, 'hard')
+    // await this.props.getQuestions(this.state.round6, 'hard')
     this.props.isLoading(false)
   }
 

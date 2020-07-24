@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { reset } from '../actions';
 
 const GameOver = (props) => {
   return (
@@ -6,9 +10,21 @@ const GameOver = (props) => {
       <h2>GAME OVER</h2>
       <p>Score: {props.score}</p>
       {props.lives > 0 && <p>Lives Left: {props.lives}</p>}
-      <button>Home</button>
+      <Link to='/'><button type='submit' onClick={props.reset}>Home</button></Link>
     </section>
   )
 }
 
-export default GameOver
+const mapStateToProps = ({ setPlayerName, isLoading, hasErrored, setLives, setScore }) => ({
+  playerName: setPlayerName,
+  isLoading: isLoading,
+  error: hasErrored,
+  lives: setLives,
+  score: setScore,
+})
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ reset }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameOver);

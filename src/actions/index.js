@@ -53,3 +53,7 @@ export const hasErrored = message => ({
   type: 'HAS_ERRORED',
   message
 })
+
+export const reset = () => ({
+  type: 'RESET'
+})

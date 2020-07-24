@@ -16,10 +16,14 @@ export const hasErrored = (state = '', action) => {
   }
 }
 
-export const setQuestions = (state = [], action) => {
+const initialState = [];
+
+export const setQuestions = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_QUESTIONS':
       return [...state, action.questions]
+    case 'RESET':
+      return initialState
     default:
       return state
   }
