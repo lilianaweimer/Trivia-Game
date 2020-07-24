@@ -13,19 +13,7 @@ const store = createStore(() => ({playerName: 'test', questions: 'test'}))
 
 describe('Form', () => {
 
-    it('should render without crashing', () => {
-        const { getByText } = render(
-            <BrowserRouter>
-                <Provider store={store}>
-                    <Form />
-                </Provider>
-            </BrowserRouter>);
-        
-
-      const header = getByText('Welcome to BlahBlah');
-
-      expect(header).toBeInTheDocument();
-    });
+   
 
     it('should render all form inputs', () => {
         const { getByTestId, getByPlaceholderText, getByRole } = render(
