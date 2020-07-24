@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect';
 import Form from './Form';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 const store = createStore(() => ({playerName: 'test', questions: 'test'}))
 
