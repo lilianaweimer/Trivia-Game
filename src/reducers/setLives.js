@@ -1,7 +1,11 @@
-export const setLives = (state = 3, action) => {
+const initialState = 3;
+
+export const setLives = (state = initialState, action) => {
   switch(action.type) {
     case 'DECREMENT_LIVES':
       return state - 1
+    case 'RESET':
+      return initialState
     default:
       return state
   }

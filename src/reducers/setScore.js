@@ -6,6 +6,8 @@ export const setScore = (state = initialState, action) => {
       return state + action.score
     case 'DECREMENT_SCORE':
       return state - action.score
+    case 'RESET':
+      return initialState
     default:
       return state
   }

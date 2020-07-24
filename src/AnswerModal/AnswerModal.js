@@ -1,19 +1,24 @@
-import React from 'react'
-import './AnswerModal.css'
+import React from 'react';
+import './AnswerModal.css';
+import { Link } from 'react-router-dom';
 
 const AnswerModal = (props) => {
   if (props.correct) {
     return(
       <section className='modal'>
         <p>Correct!</p>
-        <button onClick={props.incrementQuestion}>Next Question</button>
+        {(props.lives <= 0 || props.answers === 5) ? 
+          <Link to='/gameover'><button>Game Over</button></Link> :
+          <button onClick={props.incrementQuestion}>Next Question</button>}
       </section>
     )
   } else {
     return (
       <section className='modal'>
         <p>Incorrect.  The correct answer was: {props.correctAnswer}</p>
-        <button onClick={props.incrementQuestion}>Next Question</button>
+        {(props.lives <= 0 || props.answers === 5) ? 
+          <Link to='/gameover'><button>Game Over</button></Link> :
+          <button onClick={props.incrementQuestion}>Next Question</button>}
       </section>
     )
   }

@@ -6,6 +6,8 @@ export const setCurrentQuestion = (state = initialState, action) => {
       return state + 1
     case 'RESET_CURRENT_QUESTION':
       return initialState
+    case 'RESET':
+      return initialState
     default:
       return state
   }

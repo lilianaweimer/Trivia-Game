@@ -13,7 +13,8 @@ import {
   decrementLives,
   incrementScore,
   decrementScore 
-} from '../actions'
+} from '../actions';
+import { Redirect } from 'react-router-dom';
 
 class Chalkboard extends React.Component {
   constructor(props) {
@@ -41,15 +42,9 @@ class Chalkboard extends React.Component {
   }
 
   endGame = () => {
-    //NEED TO FIX SECOND PART OF CONDITIONAL
-    if (this.props.lives <= 0 || this.state.answerCount === 5) {
-      return (
-        <GameOver 
-          lives={this.props.lives}
-          score={this.props.score}
-        />
-      )
-    }
+    return (
+      <Redirect to='/gameover' from='/play' />
+    )
   }
 
   addPoints = () => {
@@ -100,6 +95,9 @@ class Chalkboard extends React.Component {
                 correctAnswer={this.state.question.correct_answer}
                 incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
+                lives={this.props.lives}
+                answers={this.state.answerCount}
+                gameOver={this.endGame}
               />
             }
             {this.state.isCorrect === false &&
@@ -108,9 +106,11 @@ class Chalkboard extends React.Component {
                 correctAnswer={this.state.question.correct_answer}
                 incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
+                lives={this.props.lives}
+                answers={this.state.answerCount}
+                gameOver={this.endGame}
               />
             }
-            {this.endGame()}
           </section>
         </section>
       </div>
