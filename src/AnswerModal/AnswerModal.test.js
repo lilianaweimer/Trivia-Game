@@ -35,7 +35,6 @@ describe('AnswerModal', () => {
             resetCurrentQuestion={jest.fn()}
             lives={3}
             answers={4}
-            gameOver={jest.fn()}
           />
         </Provider>
       </BrowserRouter>
@@ -59,7 +58,6 @@ describe('AnswerModal', () => {
             resetCurrentQuestion={jest.fn()}
             lives={0}
             answers={4}
-            gameOver={jest.fn()}
           />
         </Provider>
       </BrowserRouter>
@@ -83,7 +81,6 @@ describe('AnswerModal', () => {
             resetCurrentQuestion={jest.fn()}
             lives={3}
             answers={4}
-            gameOver={jest.fn()}
           />
         </Provider>
       </BrowserRouter>
@@ -107,7 +104,6 @@ describe('AnswerModal', () => {
             resetCurrentQuestion={jest.fn()}
             lives={0}
             answers={4}
-            gameOver={jest.fn()}
           />
         </Provider>
       </BrowserRouter>
@@ -118,5 +114,31 @@ describe('AnswerModal', () => {
     
     expect(message).toBeInTheDocument()
     expect(button).toBeInTheDocument()
+  })
+
+  it('should fire event on click', () => {
+    const mockIncrementQuestion = jest.fn()
+    
+    const { getByText, getByRole } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <AnswerModal 
+            correct={true}
+            correctAnswer={question.correct_answer}
+            incrementQuestion={mockIncrementQuestion}
+            resetCurrentQuestion={jest.fn()}
+            lives={3}
+            answers={4}
+          />
+        </Provider>
+      </BrowserRouter>
+    )
+    
+    const message = getByText('Correct!')
+    const button = getByRole('button', {name: 'Next Question'})
+    
+    fireEvent.click(button)
+
+    expect(mockIncrementQuestion).toHaveBeenCalledTimes(1)
   })
 })

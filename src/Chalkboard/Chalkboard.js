@@ -41,12 +41,6 @@ class Chalkboard extends React.Component {
     }
   }
 
-  endGame = () => {
-    return (
-      <Redirect to='/gameover' from='/play' />
-    )
-  }
-
   addPoints = () => {
     this.state.question.difficulty === 'easy' && this.props.incrementScore(50)
     this.state.question.difficulty === 'medium' && this.props.incrementScore(100)
@@ -97,7 +91,6 @@ class Chalkboard extends React.Component {
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
                 lives={this.props.lives}
                 answers={this.state.answerCount}
-                gameOver={this.endGame}
               />
             }
             {this.state.isCorrect === false &&
@@ -108,7 +101,6 @@ class Chalkboard extends React.Component {
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
                 lives={this.props.lives}
                 answers={this.state.answerCount}
-                gameOver={this.endGame}
               />
             }
           </section>
