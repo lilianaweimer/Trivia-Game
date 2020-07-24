@@ -15,9 +15,9 @@ describe('Game Over', () => {
 	it('should render without crashing', () => {
 		const { getByText } = render(
 				<BrowserRouter>
-						<Provider store={store}>
-								<GameOver />
-						</Provider>
+					<Provider store={store}>
+							<GameOver />
+					</Provider>
 				</BrowserRouter>);
 		
 
@@ -29,9 +29,9 @@ describe('Game Over', () => {
 	it('should render the score', () => {
 		const { getByText } = render(
 			<BrowserRouter>
-					<Provider store={store}>
-							<GameOver />
-					</Provider>
+				<Provider store={store}>
+					<GameOver />
+				</Provider>
 			</BrowserRouter>);
 
 			const score = getByText('Score: 10');
@@ -42,9 +42,9 @@ describe('Game Over', () => {
 	it('should render the remaining lives', () => {
 		const { getByText } = render(
 			<BrowserRouter>
-					<Provider store={store}>
-							<GameOver />
-					</Provider>
+				<Provider store={store}>
+					<GameOver />
+				</Provider>
 			</BrowserRouter>);
 
 			const lives = getByText('Lives Left: 1');
