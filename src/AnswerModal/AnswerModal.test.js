@@ -22,7 +22,7 @@ describe('AnswerModal', () => {
       "Green",
       "Purple"
     ]
-    }
+  }
 
   it('should render a message and a button if correct and not on the last question', () => {
     const { getByText, getByRole } = render(
