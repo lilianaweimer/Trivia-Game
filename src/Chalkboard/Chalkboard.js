@@ -15,6 +15,7 @@ import {
   decrementScore 
 } from '../actions';
 import { Redirect } from 'react-router-dom';
+import './Chalkboard.css';
 
 class Chalkboard extends React.Component {
   constructor(props) {
