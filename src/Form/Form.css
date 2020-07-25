@@ -1,9 +1,12 @@
 .start-game-form {
   display: flex;
-  height: 40%;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 50%
+  border: 20px ridge #976237!important;
+  background-color: #1a522c;
+  width: 80vw;
+  height: 80vh;
+  color: white;
 }
 
 .categories {

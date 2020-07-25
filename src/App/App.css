@@ -1,12 +1,13 @@
-.App {
+ .App {
   height: 100vh;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('space.png');
 }
 
-.Page {
+/* .Page {
   height: 98vh;
   width: 98vw;
   border: 1px solid black;
@@ -55,5 +56,5 @@
 
 #blockColorblindContent {
   display: none;
-}
+} */
 

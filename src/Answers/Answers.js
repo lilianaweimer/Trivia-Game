@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import './Answers.css'
 
 const Answers = (props) => {
   const correctAnswer = props.question.correct_answer
@@ -8,13 +9,17 @@ const Answers = (props) => {
   const shuffledAnswers = allAnswers.sort(() => .5 - Math.random())
   const mappedAnswers = shuffledAnswers.map((answer, i) => {
     return (
-      <div 
+      <label key={i} id={answer}>
+        <input type='radio' className='nes-radio is-dark' checked/>
+      <span 
         key={i} 
         id={answer}
         onClick={e => props.checkAnswer(e)}
-      >
+        >
         {`${answer}`}
-      </div>
+      </span>
+
+      </label>
     )
   })
   return (

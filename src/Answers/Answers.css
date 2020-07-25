@@ -1,0 +1,11 @@
+.answer-container {
+  color: white;
+  font-size: 1.3vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: max-content;
+  justify-content: space-evenly;
+  margin-top: 4vh;
+}
