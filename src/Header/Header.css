@@ -1,0 +1,11 @@
+.header {
+  margin-top: 0;
+  width: 85vw;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: #f7f5c4;
+  align-content: center;
+  font-size: 1.8vw;
+}

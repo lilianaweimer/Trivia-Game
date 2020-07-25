@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reset } from '../actions';
+import './GameOver.css'
 
 const GameOver = (props) => {
   return (
-    <section className='game-over'>
+    <section className='game-over nes-balloon from-left'>
       <h2>GAME OVER</h2>
       <p>Score: {props.score}</p>
       {props.lives > 0 && <p>Lives Left: {props.lives}</p>}

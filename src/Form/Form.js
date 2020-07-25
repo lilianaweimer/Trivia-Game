@@ -38,11 +38,11 @@ class Form extends React.Component {
   getAllQuestions = async () => {
     this.props.isLoading(true)
     await this.props.getQuestions(this.state.round1, 'easy')
-    // await this.props.getQuestions(this.state.round2, 'easy')
-    // await this.props.getQuestions(this.state.round3, 'medium')
-    // await this.props.getQuestions(this.state.round4, 'medium')
-    // await this.props.getQuestions(this.state.round5, 'hard')
-    // await this.props.getQuestions(this.state.round6, 'hard')
+    await this.props.getQuestions(this.state.round2, 'easy')
+    await this.props.getQuestions(this.state.round3, 'medium')
+    await this.props.getQuestions(this.state.round4, 'medium')
+    await this.props.getQuestions(this.state.round5, 'hard')
+    await this.props.getQuestions(this.state.round6, 'hard')
     this.props.isLoading(false)
   }
 
@@ -50,7 +50,7 @@ class Form extends React.Component {
     let inputs = []
     for(let i = 1; i < 7; i++) {
       inputs.push(
-        <section className='round-label' key={i}>
+        <section className='round-label nes-select is-dark' key={i}>
           <h3>{`Round ${i}`}</h3>
           <select 
             name={`round${i}`}
@@ -77,10 +77,11 @@ class Form extends React.Component {
         className='start-game-form'
         onSubmit={this.handleSubmit}
       >
-        <h1>Welcome to BlahBlah</h1>
+        <h1>Welcome to Chalkboard Trivia!</h1>
         <label className='player-input'>
           Player:
           <input 
+            className='nes-input is-dark'
             type='text'
             name='name'
             placeholder='Name'
@@ -92,7 +93,7 @@ class Form extends React.Component {
           {this.renderInputs()}
         </section>
         <input 
-          className='play-btn'
+          className='play-btn nes-btn'
           type='submit'
           value='Play!'
         />
