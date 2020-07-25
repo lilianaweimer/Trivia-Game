@@ -14,7 +14,7 @@
 .chalkboard {
   /* margin-top: 1.5vh; */
   /* border: 1px solid black; */
-  border: 15px outset #976237!important;
+  border: 20px ridge #976237!important;
   background-color: #1a522c;
   width: 80vw;
   height: 80vh;

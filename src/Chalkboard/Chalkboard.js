@@ -15,7 +15,6 @@ import {
   incrementScore,
   decrementScore 
 } from '../actions';
-import { Redirect } from 'react-router-dom';
 import './Chalkboard.css';
 
 class Chalkboard extends React.Component {
@@ -78,7 +77,6 @@ class Chalkboard extends React.Component {
           currentRound={this.props.currentRound}
           score={this.props.score}
         />
-        {/* <section className='nes-container is-rounded body'> */}
           <section className='nes-container is-rounded chalkboard'>
             <Question question={this.state.question.question} />
             <Answers 
@@ -106,7 +104,6 @@ class Chalkboard extends React.Component {
               />
             }
           </section>
-        {/* </section> */}
       </div>
     )
   }

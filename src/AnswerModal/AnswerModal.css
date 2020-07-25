@@ -1,5 +1,16 @@
 .modal {
-  height: 50%;
-  width: 60%;
-  z-index: 1000
+  border: 20px ridge #976237!important;
+  background-color: #1a522c;
+  width: 80vw;
+  height: 78.2vh;
+  color: white;
+  position: fixed;
+  top: 18%;
+  left: 10%;
+  font-size: 3vh;
+  padding: 20% 10%;
+}
+
+.nes-btn {
+  margin-top: 2vh;
 }
