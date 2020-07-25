@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import './Question.css'
 
 const Question = (props) => {
   let fixedQuestion = props.question
