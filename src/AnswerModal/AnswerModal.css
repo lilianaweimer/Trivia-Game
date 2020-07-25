@@ -2,13 +2,13 @@
   border: 20px ridge #976237!important;
   background-color: #1a522c;
   width: 80vw;
-  height: 78.2vh;
+  height: 70vh;
   color: white;
   position: fixed;
-  top: 18%;
+  top: 25%;
   left: 10%;
   font-size: 3vh;
-  padding: 20% 10%;
+  padding: 10%;
 }
 
 .nes-btn {
