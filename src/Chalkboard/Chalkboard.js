@@ -69,7 +69,7 @@ class Chalkboard extends React.Component {
 
   render() {
     return (
-      <div className='nes-container is-rounded Page'>
+      <div className='Page'>
         <Header 
           question={this.state.question} 
           questionCounter={this.props.currentQuestion} 
