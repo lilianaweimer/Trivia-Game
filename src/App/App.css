@@ -1,4 +1,4 @@
-.App {
+ .App {
   height: 100vh;
   text-align: center;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.Page {
+/* .Page {
   height: 98vh;
   width: 98vw;
   border: 1px solid black;
@@ -55,5 +55,5 @@
 
 #blockColorblindContent {
   display: none;
-}
+} */
 

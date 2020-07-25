@@ -6,6 +6,7 @@ import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
 import GameOver from '../GameOver/GameOver'
 import { bindActionCreators } from 'redux'
+import 'nes.css/css/nes.min.css'
 import { 
   incrementCurrentQuestion, 
   resetCurrentQuestion, 
@@ -69,7 +70,7 @@ class Chalkboard extends React.Component {
 
   render() {
     return (
-      <div className='Page'>
+      <div className='nes-container is-rounded Page'>
         <Header 
           question={this.state.question} 
           questionCounter={this.props.currentQuestion} 
@@ -77,8 +78,8 @@ class Chalkboard extends React.Component {
           currentRound={this.props.currentRound}
           score={this.props.score}
         />
-        <section className='body'>
-          <section className='chalkboard'>
+        {/* <section className='nes-container is-rounded body'> */}
+          <section className='nes-container is-rounded chalkboard'>
             <Question question={this.state.question.question} />
             <Answers 
               question={this.state.question} 
@@ -105,7 +106,7 @@ class Chalkboard extends React.Component {
               />
             }
           </section>
-        </section>
+        {/* </section> */}
       </div>
     )
   }

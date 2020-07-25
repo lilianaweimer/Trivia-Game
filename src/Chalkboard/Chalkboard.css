@@ -1,4 +1,59 @@
+.Page {
+  height: 98vh;
+  width: 98vw;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   align-items: center;
+  /* background-image: url('./classroom-export.png');
+  background-repeat: no-repeat;
+  background-size: 100%; */
+}
+
 .chalkboard {
-  background-image: url('./classroom-export.png');
-  background-size: 100%;
+  /* margin-top: 1.5vh; */
+  /* border: 1px solid black; */
+  border: 15px outset #976237!important;
+  background-color: #1a522c;
+  width: 80vw;
+  height: 80vh;
+}
+
+
+.header {
+  /* border: 1px solid black; */
+  width: 98vw;
+  height: 15vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.question-number {
+  /* border: 1px solid black; */
+  width: 13vw;
+  height: 10vh;
+}
+
+.category {
+  /* border: 1px solid black; */
+  width: 60vw;
+  height: 10vh;
+}
+
+.lives {
+  /* border: 1px solid black; */
+  width: 13vw;
+  height: 10vh;
+}
+/* 
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+#blockColorblindContent {
+  display: none;
 }
