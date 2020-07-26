@@ -10,6 +10,9 @@ import { createStore } from 'redux';
 
 const store = createStore(() => ({playerName: 'test', questions: 'test'}))
 
+const handleSubmit = jest.fn()
+
+
 describe('Form', () => {
 
   it('should render without crashing', () => {
@@ -52,7 +55,7 @@ describe('Form', () => {
   });
 
   it('should be able to fill the form out', () => {
-    const { getByTestId, getByPlaceholderText, getByDisplayValue, debug } = render(
+    const { getByTestId, getByPlaceholderText, getByDisplayValue } = render(
       <BrowserRouter>
         <Provider store={store}>
           <Form />
@@ -94,6 +97,24 @@ describe('Form', () => {
 
     expect(changedName).toBeInTheDocument();
     expect(changedRoundOne).toBeInTheDocument();
+  });
+
+  it('should fire the handleSubmit function when the button is clicked', () => {
+    const { getByRole } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Form />
+        </Provider>
+      </BrowserRouter>);
+      
+    //I think this test requires thunk testing
+
+    // const playButton = getByRole('button');
+
+    // fireEvent.click(playButton);
+
+    // expect(handleSubmit).toHaveBeenCalledTimes(1);
+
   });
 
 });

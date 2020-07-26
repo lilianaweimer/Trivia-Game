@@ -5,7 +5,9 @@ import '@testing-library/jest-dom/extend-expect';
 import Answers from './Answers';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+
+
 
 const store = createStore(() => ({playerName: 'test', questions: [[
     {
