@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, fireEvent, getByDisplayValue } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Lives from './Lives';
@@ -11,10 +11,10 @@ import { createStore } from 'redux';
 
 const store = createStore(() => ({setLives: 1}))
 
-describe('Header', () => {
+describe('Lives', () => {
 
 	it('should render without crashing', () => {
-		const { getByText } = render(
+		const { getByText, getAllByTestId } = render(
 				<BrowserRouter>
 					<Provider store={store}>
             <Header 
@@ -27,9 +27,12 @@ describe('Header', () => {
 					</Provider>
         </BrowserRouter>);
         
-    const lives = getByText('2');
+    const lives = getByText('Lives:');
+    const heart = getAllByTestId('heart');
 
     expect(lives).toBeInTheDocument();
-	}); 
+    expect(heart[0]).toBeInTheDocument();
+    expect(heart[1]).toBeInTheDocument();
+	});
 
 });

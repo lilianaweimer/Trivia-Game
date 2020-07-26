@@ -11,7 +11,7 @@ const Answers = (props) => {
   const mappedAnswers = shuffledAnswers.map((answer, i) => {
     return (
       <label key={i} id={answer}>
-        <input type='radio' className='nes-radio is-dark' checked/>
+        <input type='radio' className='nes-radio is-dark' checked readOnly/>
       <span 
         key={i} 
         id={answer}
