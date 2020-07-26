@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Answers from './Answers';
@@ -75,6 +75,20 @@ describe('Answers', () => {
   });
 
   it('should check if the answer is correct when an answer is clicked', () => {
-    
-  })
+    const { getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Answers  
+            question={question} 
+            checkAnswer={checkAnswer}/>
+        </Provider>
+      </BrowserRouter>
+    )
+
+    const answer1 = getByText('Jakarta');
+
+    fireEvent.click(answer1);
+
+    expect(checkAnswer).toHaveBeenCalledTimes(1);
+  });
 })
