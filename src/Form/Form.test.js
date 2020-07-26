@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-const store = createStore(() => ({playerName: 'test', questions: 'test'}))
+const store = createStore(() => ({playerName: 'test', questions: []}))
 
 const handleSubmit = jest.fn()
 
