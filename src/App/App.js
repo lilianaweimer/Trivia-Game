@@ -8,7 +8,6 @@ import GameOver from '../GameOver/GameOver';
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 import { hasErrored } from '../actions';
-// import { setCurrentRound } from '../actions';
 
 class App extends React.Component {
 
