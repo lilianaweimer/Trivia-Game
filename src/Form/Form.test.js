@@ -21,7 +21,7 @@ describe('Form', () => {
       </BrowserRouter>
     );
 
-    const header = getByText('Welcome to BlahBlah');
+    const header = getByText('Welcome to Chalkboard Trivia!');
     expect(header).toBeInTheDocument();
   });
 
