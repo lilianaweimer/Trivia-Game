@@ -4,57 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('space.png');
+  background-image: url('space.png')
 }
 
-/* .Page {
-  height: 98vh;
-  width: 98vw;
-  border: 1px solid black;
+.loading {
+  font-size: 4vw;
+  color: red
 }
-
-.header {
-  border: 1px solid black;
-  width: 98vw;
-  height: 15vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.question-number {
-  border: 1px solid black;
-  width: 13vw;
-  height: 10vh;
-}
-
-.category {
-  border: 1px solid black;
-  width: 60vw;
-  height: 10vh;
-}
-
-.lives {
-  border: 1px solid black;
-  width: 13vw;
-  height: 10vh;
-}
-
-.body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.chalkboard {
-  margin-top: 1.5vh;
-  border: 1px solid black;
-  width: 80vw;
-  height: 80vh
-}
-
-
-#blockColorblindContent {
-  display: none;
-} */
-

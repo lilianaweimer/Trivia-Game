@@ -16,6 +16,7 @@ import {
   decrementScore 
 } from '../actions';
 import './Chalkboard.css';
+var decode = require('unescape');
 
 class Chalkboard extends React.Component {
   constructor(props) {
@@ -78,7 +79,7 @@ class Chalkboard extends React.Component {
           score={this.props.score}
         />
           <section className='nes-container is-rounded chalkboard'>
-            <Question question={this.state.question.question} />
+            <Question question={decode(this.state.question.question)} />
             <Answers 
               question={this.state.question} 
               checkAnswer={this.checkAnswer}
