@@ -8,7 +8,7 @@ const Lives = (props) => {
   }
   return (
     <p>{lives.map(heart => {
-      return <i key={lives.indexOf(heart)} className='nes-icon heart is-medium' />
+      return <i className='nes-icon heart is-medium' />
     })}</p>
   )
 }

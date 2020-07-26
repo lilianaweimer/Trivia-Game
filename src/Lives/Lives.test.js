@@ -11,7 +11,7 @@ import { createStore } from 'redux';
 
 const store = createStore(() => ({setLives: 1}))
 
-describe('Header', () => {
+describe('Lives', () => {
 
 	it('should render without crashing', () => {
 		const { getByText } = render(
@@ -27,7 +27,7 @@ describe('Header', () => {
 					</Provider>
         </BrowserRouter>);
         
-    const lives = getByText('2');
+    const lives = getByText('Lives:');
 
     expect(lives).toBeInTheDocument();
 	}); 
