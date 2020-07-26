@@ -38,6 +38,24 @@ describe('Header', () => {
     expect(lives).toBeInTheDocument();
     expect(score).toBeInTheDocument();
     expect(scoreNum).toBeInTheDocument();
+  }); 
+  
+  it('should render without crashing even if no data is passed in', () => {
+		const { getByText } = render(
+				<BrowserRouter>
+					<Provider store={store}>
+            <Header 
+              question={{category: ''}}
+              questionCounter={1} 
+            />
+					</Provider>
+        </BrowserRouter>);
+           
+    const lives = getByText('Lives:');
+    const score = getByText('Score:');
+
+    expect(lives).toBeInTheDocument();
+    expect(score).toBeInTheDocument();
 	}); 
 
 });
