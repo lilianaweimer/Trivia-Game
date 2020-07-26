@@ -20,7 +20,9 @@ class App extends React.Component {
     }
     if(this.props.isLoading) {
       return (
-        <p>Loading...</p>
+        <main className='App'>
+          <p className='loading'>Loading...</p>
+        </main>
       )
     }
   

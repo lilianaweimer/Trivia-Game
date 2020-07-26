@@ -20,21 +20,25 @@ class Form extends React.Component {
       round4: '',
       round5: '',
       round6: '',
+      // isDisabled: true
     }
   }
 
   handleChange = (e) => {
+    e.preventDefault()
     const { name, value } = e.target
     this.setState({ [name]: value })
   }
-
+  
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.setPlayerName(this.state.name)
-    this.getAllQuestions()
-    this.props.history.push('/play')
+    // if(this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
+      this.props.setPlayerName(this.state.name)
+      this.getAllQuestions()
+      this.props.history.push('/play')
+    // } 
   }
-
+    
   getAllQuestions = async () => {
     this.props.isLoading(true)
     await this.props.getQuestions(this.state.round1, 'easy')
@@ -45,31 +49,38 @@ class Form extends React.Component {
     await this.props.getQuestions(this.state.round6, 'hard')
     this.props.isLoading(false)
   }
-
+    
   renderInputs = () => {
     let inputs = []
     for(let i = 1; i < 7; i++) {
       inputs.push(
         <section className='round-label nes-select is-dark' key={i}>
-          <h3>{`Round ${i}`}</h3>
-          <select 
-            name={`round${i}`}
-            onChange={this.handleChange}
-            data-testid={`round${i}`}
+        <h3>{`Round ${i}`}</h3>
+        <select 
+          name={`round${i}`}
+          onChange={this.handleChange}
+          data-testid={`round${i}`}
           >
-            <option>Select a subject...</option>
-            <option value='23'>History</option>
-            <option value='22'>Geography</option>
-            <option value='19'>Math</option>
-            <option value='25'>Art</option>
-            <option value='17'>Science & Nature</option>
-            <option value='10'>Books</option>
-          </select>
-        </section>
-      )
-    }
-    return inputs
+          <option>Select a subject...</option>
+          <option value='23'>History</option>
+          <option value='22'>Geography</option>
+          <option value='19'>Math</option>
+          <option value='25'>Art</option>
+          <option value='17'>Science & Nature</option>
+          <option value='10'>Books</option>
+        </select>
+      </section>
+    )
   }
+  return inputs
+}
+  
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state !== prevState && this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
+  //       this.setState({isDisabled: false})
+  //   }
+  //   console.log('update')
+  // }
 
   render() {
     return (
@@ -93,6 +104,7 @@ class Form extends React.Component {
           {this.renderInputs()}
         </section>
         <input 
+          // className={this.state.isDisabled ? 'play-btn nes-btn is-disabled' : 'player-btn nes-btn'}
           className='play-btn nes-btn'
           type='submit'
           value='Play!'
@@ -102,17 +114,8 @@ class Form extends React.Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getQuestions: (cat, diff) => dispatch(getQuestions(cat, diff)),
-//     setPlayerName: () => dispatch(setPlayerName())
-//   }
-// }
-
 const mapDispatchToProps = dispatch => (
   bindActionCreators({ setPlayerName, getQuestions, isLoading }, dispatch)
 )
-
-
 
 export default connect(null, mapDispatchToProps)(withRouter(Form))
