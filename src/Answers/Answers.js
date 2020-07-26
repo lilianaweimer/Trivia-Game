@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import './Answers.css'
+var decode = require('unescape');
 
 const Answers = (props) => {
   const correctAnswer = props.question.correct_answer
@@ -16,7 +17,7 @@ const Answers = (props) => {
         id={answer}
         onClick={e => props.checkAnswer(e)}
         >
-        {`${answer}`}
+        {decode(answer)}
       </span>
 
       </label>
