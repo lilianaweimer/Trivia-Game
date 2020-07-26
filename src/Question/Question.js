@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Question.css'
 var decode = require('unescape')
+
 const Question = (props) => {
   let fixedQuestion = props.question
   if (props.question.includes('&quot;')) {
@@ -12,7 +13,7 @@ const Question = (props) => {
   }
   return (
     <section className='question-container'>
-      <p>{decode(props.question)}</p>
+      <p>{decode(fixedQuestion)}</p>
     </section>
   )
 }
