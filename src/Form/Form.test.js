@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { render, fireEvent, getByDisplayValue } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Form from './Form';
-import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
