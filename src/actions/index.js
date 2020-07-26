@@ -3,6 +3,11 @@ export const setQuestions = questions => ({
   questions
 })
 
+export const setTeachersPets = teachersPets => ({
+  type: 'SET_TEACHERS_PETS',
+  teachersPets
+})
+
 export const incrementCurrentRound = () => ({
   type: 'INCREMENT_CURRENT_ROUND',
 })

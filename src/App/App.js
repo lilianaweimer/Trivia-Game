@@ -44,14 +44,15 @@ class App extends React.Component {
   
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives, teachersPets }) => ({
   playerName: setPlayerName,
   questions: setQuestions,
   currentQuestion: setCurrentQuestion,
   currentRound: setCurrentRound,
   isLoading: isLoading,
   error: hasErrored,
-  lives: setLives
+  lives: setLives,
+  teachersPets: teachersPets
 })
 
 export default connect(mapStateToProps)(App);
