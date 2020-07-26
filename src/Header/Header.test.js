@@ -27,19 +27,17 @@ describe('Header', () => {
       </BrowserRouter>
     );
 
-    const question = getByText('Question 2');
-    const round = getByText('Round 4: test category');
-    const lives = getByText('2');
-    const score = getByText('Lives: Score: 4');
-    //these live in the same element ('Lives:' and 'Score:')
-    //so we need to test for them together
-    //also, the lives live in their own element (the actual #)
-    //so they need to be tested for separately 
+    const round = getByText('Round 4: Question 2');
+    const category = getByText('test category');
+    const lives = getByText('Lives:');
+    const score = getByText('Score:');
+    const scoreNum = getByText('4');
 
-    expect(question).toBeInTheDocument();
     expect(round).toBeInTheDocument();
+    expect(category).toBeInTheDocument();
     expect(lives).toBeInTheDocument();
     expect(score).toBeInTheDocument();
+    expect(scoreNum).toBeInTheDocument();
 	}); 
 
 });

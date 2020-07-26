@@ -1,11 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Answers from './Answers';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+
+
 
 const store = createStore(() => ({playerName: 'test', questions: [[
     {
@@ -72,5 +74,23 @@ describe('Answers', () => {
     expect(answer2).toBeInTheDocument()
     expect(answer3).toBeInTheDocument()
     expect(answer4).toBeInTheDocument()
-  })
+  });
+
+  it('should check if the answer is correct when an answer is clicked', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Answers  
+            question={question} 
+            checkAnswer={checkAnswer}/>
+        </Provider>
+      </BrowserRouter>
+    )
+
+    const answer1 = getByText('Jakarta');
+
+    fireEvent.click(answer1);
+
+    expect(checkAnswer).toHaveBeenCalledTimes(1);
+  });
 })
