@@ -10,7 +10,7 @@ import { createStore } from 'redux'
 
 describe('AnswerModal', () => {
 
-  const store = createStore(() => ({playerName: 'test', questions: 'test'}))
+  const store = createStore(() => ({playerName: 'test', questions: []}))
   const question = {
     category: "Science & Nature",
     type: "multiple",
