@@ -72,5 +72,9 @@ describe('Answers', () => {
     expect(answer2).toBeInTheDocument()
     expect(answer3).toBeInTheDocument()
     expect(answer4).toBeInTheDocument()
+  });
+
+  it('should check if the answer is correct when an answer is clicked', () => {
+    
   })
 })
