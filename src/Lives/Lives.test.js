@@ -17,20 +17,15 @@ describe('Lives', () => {
 		const { getByText, getAllByTestId } = render(
 				<BrowserRouter>
 					<Provider store={store}>
-            <Header 
-              question={{category: 'test category'}}
-              questionCounter={1} 
+            <Lives
               lives={2}
-              currentRound={3}
-              score={4}
             />
 					</Provider>
         </BrowserRouter>);
         
-    const lives = getByText('Lives:');
+  
     const heart = getAllByTestId('heart');
 
-    expect(lives).toBeInTheDocument();
     expect(heart[0]).toBeInTheDocument();
     expect(heart[1]).toBeInTheDocument();
 	});

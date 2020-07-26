@@ -8,7 +8,6 @@ import GameOver from '../GameOver/GameOver';
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 import { hasErrored } from '../actions';
-// import { setCurrentRound } from '../actions';
 
 class App extends React.Component {
 
@@ -21,7 +20,7 @@ class App extends React.Component {
     if(this.props.isLoading) {
       return (
         <main className='App'>
-          <p className='loading'>Loading...</p>
+          <p className='loading'>Loading<span>.</span><span>.</span><span>.</span></p>
         </main>
       )
     }
@@ -45,14 +44,15 @@ class App extends React.Component {
   
 }
 
-const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives }) => ({
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives, teachersPets }) => ({
   playerName: setPlayerName,
   questions: setQuestions,
   currentQuestion: setCurrentQuestion,
   currentRound: setCurrentRound,
   isLoading: isLoading,
   error: hasErrored,
-  lives: setLives
+  lives: setLives,
+  teachersPets: teachersPets
 })
 
 export default connect(mapStateToProps)(App);

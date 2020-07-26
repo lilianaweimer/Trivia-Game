@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
+import { Redirect } from 'react-router-dom'
 import GameOver from '../GameOver/GameOver'
 import { bindActionCreators } from 'redux'
 import 'nes.css/css/nes.min.css'
@@ -22,10 +23,16 @@ class Chalkboard extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      question: this.props.questions[this.props.currentRound][this.props.currentQuestion],
+      question: {},
       isCorrect: null,
       gameOver: false,
       answerCount: 0,
+    }
+  }
+
+  componentDidMount() {
+  if(this.props.questions.length) {
+    this.setState({question: this.props.questions[this.props.currentRound][this.props.currentQuestion]})
     }
   }
   
@@ -69,6 +76,12 @@ class Chalkboard extends React.Component {
   }
 
   render() {
+    if (this.props.questions.length === 0) {
+      return (
+        <Redirect to='/'/>
+      )
+    }
+    const question = this.props.questions[this.props.currentRound][this.props.currentQuestion]
     return (
       <div className='Page'>
         <Header 
@@ -79,15 +92,15 @@ class Chalkboard extends React.Component {
           score={this.props.score}
         />
           <section className='nes-container is-rounded chalkboard'>
-            <Question question={decode(this.state.question.question)} />
+            <Question question={question.question} />
             <Answers 
-              question={this.state.question} 
+              question={question} 
               checkAnswer={this.checkAnswer}
             />
             {this.state.isCorrect && 
               <AnswerModal 
                 correct={true}
-                correctAnswer={this.state.question.correct_answer}
+                correctAnswer={question.correct_answer}
                 incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
                 lives={this.props.lives}
@@ -97,7 +110,7 @@ class Chalkboard extends React.Component {
             {this.state.isCorrect === false &&
               <AnswerModal 
                 correct={false}
-                correctAnswer={this.state.question.correct_answer}
+                correctAnswer={question.correct_answer}
                 incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
                 lives={this.props.lives}
