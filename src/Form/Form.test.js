@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { render, fireEvent, getByDisplayValue } from '@testing-library/react';
+import { render, render as rtlRender, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Form from './Form';
-import thunk from 'redux-thunk';
+import Chalkboard from '../Chalkboard/Chalkboard'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 const store = createStore(() => ({playerName: 'test', questions: []}))
-
-const handleSubmit = jest.fn()
-
 
 describe('Form', () => {
 
@@ -70,27 +66,13 @@ describe('Form', () => {
     const roundFive = getByTestId('round5');
     const roundSix = getByTestId('round6');
 
-    fireEvent.change(nameInput, {
-        target: {value: 'somebody'}
-    });
-    fireEvent.change(roundOne, {
-        target: {value: '23'}
-    });
-    fireEvent.change(roundTwo, {
-        target: {value: '22'}
-    });
-    fireEvent.change(roundThree, {
-        target: {value: '19'}
-    });
-    fireEvent.change(roundFour, {
-        target: {value: '25'}
-    });
-    fireEvent.change(roundFive, {
-        target: {value: '17'}
-    });
-    fireEvent.change(roundSix, {
-        target: {value: '10'}
-    });
+    fireEvent.change(nameInput, {target: {value: 'somebody'}});
+    fireEvent.change(roundOne, {target: {value: '23'}});
+    fireEvent.change(roundTwo, {target: {value: '22'}});
+    fireEvent.change(roundThree, {target: {value: '19'}});
+    fireEvent.change(roundFour, {target: {value: '25'}});
+    fireEvent.change(roundFive, {target: {value: '17'}});
+    fireEvent.change(roundSix, {target: {value: '10'}});
 
     const changedName = getByDisplayValue('somebody');
     const changedRoundOne = getByDisplayValue('History');
@@ -99,22 +81,67 @@ describe('Form', () => {
     expect(changedRoundOne).toBeInTheDocument();
   });
 
-  it('should fire the handleSubmit function when the button is clicked', () => {
-    const { getByRole } = render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Form />
-        </Provider>
-      </BrowserRouter>);
-      
-    //I think this test requires thunk testing
+  // it('should fire the handleSubmit function when the button is clicked', async () => {
+  //   const { getByRole } = render(
+  //     <BrowserRouter>
+  //       <Provider store={store}>
+  //         <Form />
+  //       </Provider>
+  //     </BrowserRouter>
+  //   );
 
-    // const playButton = getByRole('button');
+  //   const render2 = (
+  //     ui,
+  //     {
+  //       initialState,
+  //       store = createStore(() => ({
+  //         setPlayerName: 'test', setQuestions: [[
+  //         {
+  //         "category": "Geography",
+  //         "type": "multiple",
+  //         "difficulty": "easy",
+  //         "question": "What is the capital of Indonesia?",
+  //         "correct_answer": "Jakarta",
+  //         "incorrect_answers": [
+  //         "Bandung",
+  //         "Medan",
+  //         "Palembang"
+  //         ]
+  //         },
+  //         {
+  //         "category": "Vehicles",
+  //         "type": "multiple",
+  //         "difficulty": "easy",
+  //         "question": "Jaguar Cars was previously owned by which car manfacturer?",
+  //         "correct_answer": "Ford",
+  //         "incorrect_answers": [
+  //         "Chrysler",
+  //         "General Motors",
+  //         "Fiat"
+  //         ]
+  //         }
+  //       ]],
+  //       setCurrentRound: 0,
+  //       setCurrentQuestion: 0,
+  //       setScore: 0,
+  //       setLives: 3,
 
-    // fireEvent.click(playButton);
+  //       })),
+  //       ...renderOptions
+  //     } = {}
+  //   ) => {
+  //     function Wrapper({ children }) {
+  //       return <BrowserRouter><Provider store={store}>{children}</Provider></BrowserRouter>
+  //     }
+  //     return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
+  //   }
+    
+  //   const { getByText } = render2(<Chalkboard />);
 
-    // expect(handleSubmit).toHaveBeenCalledTimes(1);
-
-  });
+  //   const playBtn = getByRole('button')
+  //   const headerText = await waitFor(() => getByText('Round 1:', {exact: false}))
+  //   fireEvent.click(playBtn)
+  //   expect(headerText).toBeInTheDocument()
+  // });
 
 });

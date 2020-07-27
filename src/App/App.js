@@ -43,7 +43,6 @@ class App extends React.Component {
       </main>
     )
   }
-  
 }
 
 const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives, setTeachersPets }) => ({
