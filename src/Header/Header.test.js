@@ -14,18 +14,18 @@ describe('Header', () => {
 
 	it('should render without crashing', () => {
 		const { getByText } = render(
-				<BrowserRouter>
-					<Provider store={store}>
-            <Header 
-              question={{category: 'test category'}}
-              questionCounter={1} 
-              lives={2}
-              currentRound={3}
-              score={4}
-            />
-					</Provider>
-				</BrowserRouter>);
-		
+      <BrowserRouter>
+        <Provider store={store}>
+          <Header 
+            question={{category: 'test category'}}
+            questionCounter={1} 
+            lives={2}
+            currentRound={3}
+            score={4}
+          />
+        </Provider>
+      </BrowserRouter>
+    );
 
     const round = getByText('Round 4: Question 2');
     const category = getByText('test category');
