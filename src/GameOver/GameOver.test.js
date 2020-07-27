@@ -1,16 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { render, fireEvent, getByDisplayValue } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import GameOver from './GameOver';
-import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-const store = createStore(() => ({setScore: 10, setLives: 1}))
 
 describe('Game Over', () => {
+  const store = createStore(() => ({setPlayerName: 'Bill', setScore: 10, setLives: 1}))
 
 	it('should render without crashing', () => {
 		const { getByText } = render(
@@ -50,6 +48,22 @@ describe('Game Over', () => {
 			const lives = getByText('Lives Left: 1');
 			
 			expect(lives).toBeInTheDocument();
-	});
-
+  });
 })
+
+describe('GameOver Sad Path', () => {
+  it('should render an error if the store is empty', () => {
+    const store = createStore(() => ({}))
+		const { getByText } = render(
+			<BrowserRouter>
+				<Provider store={store}>
+					<GameOver />
+				</Provider>
+			</BrowserRouter>);
+
+			const errorMsg = getByText('Error: You have no data, how did you get here?');
+			
+      expect(errorMsg).toBeInTheDocument();
+    })  
+})
+      
