@@ -19,9 +19,10 @@ export const hasErrored = (state = '', action) => {
 const initialState = []
 
 export const setTeachersPets = (state = initialState, action) => {
+  console.log(action.teachersPets, 'IN REDUCER')
   switch (action.type) {
-    case 'SET_QUESTIONS':
-      return [...state, action.teachersPets]
+    case 'SET_TEACHERS_PETS':
+      return action.teachersPets
     default:
       return initialState
   }
