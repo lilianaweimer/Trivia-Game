@@ -22,7 +22,7 @@ export const setTeachersPets = (state = initialState, action) => {
   console.log(action.teachersPets, 'IN REDUCER')
   switch (action.type) {
     case 'SET_TEACHERS_PETS':
-      return [...state, action.teachersPets]
+      return action.teachersPets
     default:
       return initialState
   }

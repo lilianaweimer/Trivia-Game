@@ -10,8 +10,7 @@ export const getTeachersPets = () => {
         throw Error(response.statusText)
       }
       const data = await response.json()
-      console.log(data)
-      dispatch(setTeachersPets(data))
+      dispatch(setTeachersPets(data.scores))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }
