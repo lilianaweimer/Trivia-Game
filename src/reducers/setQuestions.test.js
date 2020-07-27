@@ -35,10 +35,6 @@ describe('setQuestions', () => {
       ]
       }
     ]] 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     const results = setQuestions(undefined, {
       type: 'SET_QUESTIONS',
       questions: [
@@ -68,24 +64,7 @@ describe('setQuestions', () => {
         }
       ]
     })
-<<<<<<< HEAD
-    expect(results).toEqual(expected)
-  })
-})
-
-
-
-
-
-
-
-
-
-
-
-=======
 
     expect(results).toEqual(expected)
   })
 })
->>>>>>> master
