@@ -75,13 +75,6 @@ class Form extends React.Component {
   }
   return inputs
 }
-  
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state !== prevState && this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
-  //       this.setState({isDisabled: false})
-  //   }
-  //   console.log('update')
-  // }
 
   render() {
     return (

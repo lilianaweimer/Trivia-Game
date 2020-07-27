@@ -5,9 +5,43 @@ import '@testing-library/jest-dom/extend-expect';
 import Form from './Form';
 import Chalkboard from '../Chalkboard/Chalkboard'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { rootReducer } from '../reducers/index';
+import thunk from 'redux-thunk';
 
-const store = createStore(() => ({playerName: 'test', questions: []}))
+const store = createStore(rootReducer, {
+  setPlayerName: 'test', 
+  setQuestions: [[
+     {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the capital of Indonesia?",
+      "correct_answer": "Jakarta",
+      "incorrect_answers": [
+      "Bandung",
+      "Medan",
+      "Palembang"
+    ]
+    },
+    {
+      "category": "Vehicles",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Jaguar Cars was previously owned by which car manfacturer?",
+      "correct_answer": "Ford",
+      "incorrect_answers": [
+      "Chrysler",
+      "General Motors",
+      "Fiat"
+    ]
+    }
+]],
+  setCurrentRound: 0,
+  setCurrentQuestion: 0,
+  setScore: 0,
+  setLives: 3,
+}, applyMiddleware(thunk))
 
 describe('Form', () => {
 
@@ -80,68 +114,5 @@ describe('Form', () => {
     expect(changedName).toBeInTheDocument();
     expect(changedRoundOne).toBeInTheDocument();
   });
-
-  // it('should fire the handleSubmit function when the button is clicked', async () => {
-  //   const { getByRole } = render(
-  //     <BrowserRouter>
-  //       <Provider store={store}>
-  //         <Form />
-  //       </Provider>
-  //     </BrowserRouter>
-  //   );
-
-  //   const render2 = (
-  //     ui,
-  //     {
-  //       initialState,
-  //       store = createStore(() => ({
-  //         setPlayerName: 'test', setQuestions: [[
-  //         {
-  //         "category": "Geography",
-  //         "type": "multiple",
-  //         "difficulty": "easy",
-  //         "question": "What is the capital of Indonesia?",
-  //         "correct_answer": "Jakarta",
-  //         "incorrect_answers": [
-  //         "Bandung",
-  //         "Medan",
-  //         "Palembang"
-  //         ]
-  //         },
-  //         {
-  //         "category": "Vehicles",
-  //         "type": "multiple",
-  //         "difficulty": "easy",
-  //         "question": "Jaguar Cars was previously owned by which car manfacturer?",
-  //         "correct_answer": "Ford",
-  //         "incorrect_answers": [
-  //         "Chrysler",
-  //         "General Motors",
-  //         "Fiat"
-  //         ]
-  //         }
-  //       ]],
-  //       setCurrentRound: 0,
-  //       setCurrentQuestion: 0,
-  //       setScore: 0,
-  //       setLives: 3,
-
-  //       })),
-  //       ...renderOptions
-  //     } = {}
-  //   ) => {
-  //     function Wrapper({ children }) {
-  //       return <BrowserRouter><Provider store={store}>{children}</Provider></BrowserRouter>
-  //     }
-  //     return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
-  //   }
-    
-  //   const { getByText } = render2(<Chalkboard />);
-
-  //   const playBtn = getByRole('button')
-  //   const headerText = await waitFor(() => getByText('Round 1:', {exact: false}))
-  //   fireEvent.click(playBtn)
-  //   expect(headerText).toBeInTheDocument()
-  // });
 
 });
