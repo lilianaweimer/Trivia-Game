@@ -65,5 +65,95 @@ describe('actions', () => {
   expect(result).toEqual(expectedAction)
   })
 
-  
+  it('Should be able to set the teachers pets', () => {
+    const teachersPets = [
+      {
+        id: 3,
+        initials: 'WJW',
+        score: 420000
+      },
+      {
+        id: 17,
+        initials: 'TDA'
+      }
+    ]
+
+    const expectedAction = {
+      type: 'SET_TEACHERS_PETS',
+      teachersPets: [
+        {
+          id: 3,
+          initials: 'WJW',
+          score: 420000
+        },
+        {
+          id: 17,
+          initials: 'TDA'
+        }
+      ]
+    }
+
+    const result = actions.setTeachersPets(teachersPets)
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('Should increment the current round', () => {
+
+    const expectedAction = {
+      type: 'INCREMENT_CURRENT_ROUND',
+    }
+
+    const result = actions.incrementCurrentRound()
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('Should increment the current question', () => {
+
+    const expectedAction = {
+      type: 'INCREMENT_CURRENT_QUESTION',
+    }
+
+    const result = actions.incrementCurrentQuestion()
+
+    expect(result).toEqual(expectedAction)
+  })
+
+
+  it('Should reset the current question', () => {
+
+    const expectedAction = {
+      type: 'RESET_CURRENT_QUESTION',
+    }
+
+    const result = actions.resetCurrentQuestion()
+
+    expect(result).toEqual(expectedAction)
+  })
+
+
+  it('Should increment the current score', () => {
+    const score = 50
+    const expectedAction = {
+      type: 'INCREMENT_SCORE',
+      score: 50
+    }
+
+    const result = actions.incrementScore(score)
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('Should decrement the current score', () => {
+    const score = (-50)
+    const expectedAction = {
+      type: 'DECREMENT_SCORE',
+      score: -50
+    }
+
+    const result = actions.decrementScore(score)
+
+    expect(result).toEqual(expectedAction)
+  })
 })
