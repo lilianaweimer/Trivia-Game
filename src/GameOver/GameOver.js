@@ -12,6 +12,7 @@ const GameOver = (props) => {
       <p>Score: {props.score}</p>
       {props.lives > 0 && <p>Lives Left: {props.lives}</p>}
       <Link to='/'><button className='nes-btn' type='submit' onClick={props.reset}>Home</button></Link>
+      <Link to='/nerdz'><button className='nes-btn'>Teachers Pets</button></Link>
     </section>
   )
 }

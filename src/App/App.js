@@ -7,7 +7,6 @@ import GameOver from '../GameOver/GameOver';
 
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
-import { hasErrored } from '../actions';
 
 class App extends React.Component {
 
@@ -36,6 +35,9 @@ class App extends React.Component {
           </Route>
           <Route path='/gameover'>
             <GameOver />
+          </Route>
+          <Route path='/nerdz'>
+            <TeachersPets />
           </Route>
         </Switch>
       </main>
