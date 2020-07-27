@@ -12,12 +12,12 @@ describe('Game Over', () => {
 
 	it('should render without crashing', () => {
 		const { getByText } = render(
-				<BrowserRouter>
-					<Provider store={store}>
-							<GameOver />
-					</Provider>
-				</BrowserRouter>);
-		
+			<BrowserRouter>
+				<Provider store={store}>
+					<GameOver />
+				</Provider>
+			</BrowserRouter>
+		);
 
 		const gameover = getByText('GAME OVER');
 
@@ -30,11 +30,12 @@ describe('Game Over', () => {
 				<Provider store={store}>
 					<GameOver />
 				</Provider>
-			</BrowserRouter>);
+			</BrowserRouter>
+		);
 
-			const score = getByText('Score: 10');
-			
-			expect(score).toBeInTheDocument();
+		const score = getByText('Score: 10');
+		
+		expect(score).toBeInTheDocument();
 	});
 
 	it('should render the remaining lives', () => {
@@ -43,7 +44,8 @@ describe('Game Over', () => {
 				<Provider store={store}>
 					<GameOver />
 				</Provider>
-			</BrowserRouter>);
+			</BrowserRouter>
+		);
 
 			const lives = getByText('Lives Left: 1');
 			
