@@ -4,9 +4,7 @@ import { setQuestions }from './setQuestions'
 describe('setQuestions', () => {
   it('Should return an initial state', () => {
     const expected = []
-
     const results = setQuestions(undefined, {})
-
     expect(results).toEqual(expected)
   })
 
@@ -37,7 +35,6 @@ describe('setQuestions', () => {
       ]
       }
     ]] 
-
     const results = setQuestions(undefined, {
       type: 'SET_QUESTIONS',
       questions: [
