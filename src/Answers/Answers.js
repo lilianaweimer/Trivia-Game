@@ -4,6 +4,7 @@ import './Answers.css'
 var decode = require('unescape');
 
 const Answers = (props) => {
+  if (props.question) {  
   const correctAnswer = props.question.correct_answer
   const incorrectAnswers = props.question.incorrect_answers
   const allAnswers = [...incorrectAnswers, correctAnswer]
@@ -27,7 +28,9 @@ const Answers = (props) => {
     <section className='answer-container'>
       {mappedAnswers}
     </section>
-  )
+  )} else {
+    return <p>Error: No Answers Provided</p>
+  }
 }
 
 export default Answers

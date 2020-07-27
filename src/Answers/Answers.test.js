@@ -40,7 +40,7 @@ const store = createStore(() => ({playerName: 'test', questions: [[
 
 const checkAnswer = jest.fn()
 
-const question = {
+let question = {
   "category": "Geography",
   "type": "multiple",
   "difficulty": "easy",
@@ -92,5 +92,20 @@ describe('Answers', () => {
     fireEvent.click(answer1);
 
     expect(checkAnswer).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render an error message if no question is provided', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Answers  
+            checkAnswer={checkAnswer}/>
+        </Provider>
+      </BrowserRouter>
+    )
+
+    const errorMessage = getByText('Error: No Answers Provided');
+
+    expect(errorMessage).toBeInTheDocument()
   });
 })

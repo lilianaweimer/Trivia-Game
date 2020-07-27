@@ -36,7 +36,7 @@ const store = createStore(() => ({playerName: 'test', questions: [[
 
 }))
 
-const question = 'What is the capital of Indonesia?'
+let question = 'What is the capital of Indonesia?'
 
 describe('Question', () => {
 
@@ -53,5 +53,18 @@ describe('Question', () => {
     const questionOnDOM = getByText('What is the capital of Indonesia?')
 
     expect(questionOnDOM).toBeInTheDocument()
+  })
+
+  it('Should render an error message if no question is provided', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Question />
+        </Provider>
+      </BrowserRouter>
+    )
+    const errorOnDOM = getByText('Error: No Question Provided')
+
+    expect(errorOnDOM).toBeInTheDocument()
   })
 })

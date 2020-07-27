@@ -7,15 +7,21 @@ import { getTeachersPets } from '../thunks/getTeachersPets'
 import './GameOver.css'
 
 const GameOver = (props) => {
-  return (
-    <section className='game-over nes-balloon from-left'>
-      <h2>GAME OVER</h2>
-      <p>Score: {props.score}</p>
-      {props.lives > 0 && <p>Lives Left: {props.lives}</p>}
-      <Link to='/'><button className='nes-btn' type='submit' onClick={props.reset}>Home</button></Link>
-      <Link to='/nerdz'><button className='nes-btn' onClick={props.getTeachersPets}>Teachers Pets</button></Link>
-    </section>
-  )
+  if (props.playerName) { 
+    return (
+      <section className='game-over nes-balloon from-left'>
+        <h2>GAME OVER</h2>
+        <p>Score: {props.score}</p>
+        {props.lives > 0 && <p>Lives Left: {props.lives}</p>}
+        <Link to='/'><button className='nes-btn' type='submit' onClick={props.reset}>Home</button></Link>
+        <Link to='/nerdz'><button className='nes-btn' onClick={props.getTeachersPets}>Teachers Pets</button></Link>
+      </section>
+    )} 
+    if(!props.playerName) {
+      return (
+        <p>Error: You have no data, how did you get here?</p>
+      )
+    }
 }
 
 const mapStateToProps = ({ setPlayerName, isLoading, hasErrored, setLives, setScore }) => ({

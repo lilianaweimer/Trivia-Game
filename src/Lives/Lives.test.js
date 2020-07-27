@@ -14,7 +14,7 @@ const store = createStore(() => ({setLives: 1}))
 describe('Lives', () => {
 
 	it('should render without crashing', () => {
-		const { getByText, getAllByTestId } = render(
+		const { getAllByTestId } = render(
 				<BrowserRouter>
 					<Provider store={store}>
             <Lives
@@ -30,4 +30,17 @@ describe('Lives', () => {
     expect(heart[1]).toBeInTheDocument();
 	});
 
+  it('should render an error message if no lives are given', () => {
+		const { getByText, getAllByTestId } = render(
+				<BrowserRouter>
+					<Provider store={store}>
+            <Lives />
+					</Provider>
+        </BrowserRouter>);
+        
+  
+    const errorMessage = getByText('Error: No Lives Were Given')
+
+    expect(errorMessage).toBeInTheDocument();
+	});
 });
