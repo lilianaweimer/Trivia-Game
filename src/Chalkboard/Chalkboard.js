@@ -76,6 +76,7 @@ class Chalkboard extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     if (this.props.questions.length === 0) {
       return (
         <Redirect to='/'/>

@@ -41,8 +41,14 @@ const render = (
     ]],
     setCurrentRound: 0,
     setCurrentQuestion: 0,
-    setScore: 100,
-    setLives: 3
+    setScore: 0,
+    setLives: 3,
+    // incrementCurrentQuestion: () => {this.setCurrentQuestion++},
+    // resetCurrentQuestion: () => {this.setCurrentQuestion = 0},
+    // incrementCurrentRound: () => {this.setCurrentRound++},
+    // decrementLives: () => {this.setLives--},
+    // incrementScore: (change) => {this.setScore += change},
+    // decrementScore: (change) => {this.setScore -= change}
     })),
     ...renderOptions
   } = {}
@@ -77,6 +83,50 @@ describe('Chalkboard', () => {
       const answerModal = getByText('Incorrect. The correct answer was: Jakarta');
 
       expect(answerModal).toBeInTheDocument();
+    });
+
+    it('should increase score when an answer is correct', () => {
+      const { getByText, debug } = render(<Chalkboard />);
+
+      const answer = getByText('Jakarta');
+      const score = getByText('0');
+
+      expect(score).toBeInTheDocument();
+
+      fireEvent.click(answer);
+      debug()
+      
+      const updatedScore = getByText('50');
+
+      expect(updatedScore).toBeInTheDocument();
+
+    });
+
+    it('should decrease score when an answer is incorrect', () => {
+      const { getByText, debug } = render(<Chalkboard />);
+
+      const answer = getByText('Bandung');
+
+      fireEvent.click(answer);
+      
+    });
+
+    it('should decrease lives when an answer is incorrect', () => {
+      const { getByText, debug } = render(<Chalkboard />);
+
+      const answer = getByText('Bandung');
+
+      fireEvent.click(answer);
+      
+    });
+
+    it('should not decrease lives when an answer is correct', () => {
+      const { getByText, debug } = render(<Chalkboard />);
+
+      const answer = getByText('Jakarta');
+
+      fireEvent.click(answer);
+      
     });
 		
 }) 
