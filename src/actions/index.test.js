@@ -156,4 +156,65 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction)
   })
+
+  it('Should decrement the lives', () => {
+
+    const expectedAction = {
+      type: 'DECREMENT_LIVES',
+    }
+
+    const result = actions.decrementLives()
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('Should set the player name', () => {
+    const playerName = 'Bill'
+
+    const expectedAction = {
+      type: 'SET_PLAYER_NAME',
+      playerName: 'Bill'
+    }
+
+    const result = actions.setPlayerName(playerName)
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('Should set isLoading', () => {
+    const bool = true;
+
+    const expectedAction = {
+      type: 'IS_LOADING',
+      isLoading: true
+    }
+
+    const result = actions.isLoading(bool)
+
+    expect(result).toEqual(expectedAction)
+  })
+
+
+  it('Should set hasErrored', () => {
+    const msg = 'Youve Errored!';
+
+    const expectedAction = {
+      type: 'HAS_ERRORED',
+      message: 'Youve Errored!'
+    }
+
+    const result = actions.hasErrored(msg)
+
+    expect(result).toEqual(expectedAction)
+  })
+
+  it('Should reset the game', () => {
+    const expectedAction = {
+      type: 'RESET'
+    }
+    
+    const result = actions.reset()
+
+    expect(result).toEqual(expectedAction)
+  })
 })

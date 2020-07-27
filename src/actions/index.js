@@ -39,16 +39,6 @@ export const setPlayerName = playerName => ({
   playerName
 })
 
-export const setLeaderBoard = leaders => ({
-  type: 'SET_LEADER_BOARD',
-  leaders
-})
-
-export const isPlaying = bool => ({
-  type: 'IS_PLAYING',
-  isPlaying: bool
-})
-
 export const isLoading = bool => ({
   type: 'IS_LOADING',
   isLoading: bool
