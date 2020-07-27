@@ -1,6 +1,6 @@
 import { hasErrored } from './hasErrored'
 
-describe('hasErroredReducer', () => {
+describe('hasErrored reducer', () => {
   it('should return the initial state', () => {
     const expected = ''
     const result = hasErrored(undefined, {})
