@@ -59,7 +59,7 @@ describe('Form', () => {
   });
 
   it('should render all form inputs', () => {
-    const { getByTestId, getByPlaceholderText, getByRole } = render(
+    const { getByTestId, getByPlaceholderText, getByDisplayValue } = render(
       <BrowserRouter>
         <Provider store={store}>
           <Form />
@@ -72,7 +72,7 @@ describe('Form', () => {
     const roundFour = getByTestId('round4');
     const roundFive = getByTestId('round5');
     const roundSix = getByTestId('round6');
-    const playButton = getByRole('button');
+    const playButton = getByDisplayValue('Play!');
 
     expect(nameInput).toBeInTheDocument();
     expect(roundOne).toBeInTheDocument();

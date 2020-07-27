@@ -59,14 +59,14 @@ describe('App', () => {
   });
 
   it('should render the loading screen when the submit button is clicked', () => {
-    const { getByRole, getByText } = render(
+    const { getByDisplayValue, getByText } = render(
       <BrowserRouter>
         <Provider store={store}>
           <App />
         </Provider>
       </BrowserRouter>);
 
-    const submit = getByRole('button');
+    const submit = getByDisplayValue('Play!');
 
     fireEvent.click(submit);
 
