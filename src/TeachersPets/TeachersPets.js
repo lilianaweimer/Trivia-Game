@@ -1,5 +1,6 @@
 import React from 'react';
 import './TeachersPets.css';
+import { Link } from 'react-router-dom'
 
 const TeachersPets = () => {
   return (
@@ -10,7 +11,7 @@ const TeachersPets = () => {
           <li>Name: Score</li>
           <li>Name: Score</li>
       </ul>
-      <button>Home</button>
+      <Link to='/'><button className='nes-btn'>Home</button></Link>
     </section>
   )
 }

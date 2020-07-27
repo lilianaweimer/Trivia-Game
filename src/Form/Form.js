@@ -109,6 +109,7 @@ class Form extends React.Component {
           type='submit'
           value='Play!'
         />
+      <Link to='/nerdz'><button className='nes-btn'>Teachers Pets</button></Link>
       </form>
     )
   }

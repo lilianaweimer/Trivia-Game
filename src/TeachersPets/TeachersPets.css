@@ -1,12 +1,13 @@
 .scoreboard {
-    margin: 0 auto;
-    width: 75%;
+    align-items: center;
+    background-color: #f7f5c4;
+    border: 1px solid black;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    height: 50%;
     justify-content: center;
-    border: 1px solid black;
-    height: 75%;
+    margin: 0 auto;
+    width: 50%;
 }
 
 .scoreboard-list {
