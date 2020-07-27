@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reset } from '../actions';
+import { getTeachersPets } from '../thunks/getTeachersPets'
 import './GameOver.css'
 
 const GameOver = (props) => {
@@ -13,6 +14,7 @@ const GameOver = (props) => {
         <p>Score: {props.score}</p>
         {props.lives > 0 && <p>Lives Left: {props.lives}</p>}
         <Link to='/'><button className='nes-btn' type='submit' onClick={props.reset}>Home</button></Link>
+        <Link to='/nerdz'><button className='nes-btn' onClick={props.getTeachersPets}>Teachers Pets</button></Link>
       </section>
     )} 
     if(!props.playerName) {
@@ -31,7 +33,7 @@ const mapStateToProps = ({ setPlayerName, isLoading, hasErrored, setLives, setSc
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ reset }, dispatch)
+  bindActionCreators({ reset, getTeachersPets }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameOver);

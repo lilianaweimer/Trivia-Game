@@ -16,7 +16,8 @@ describe('setTeachersPets', () => {
     const results = setTeachersPets(undefined, {
       type: 'SET_TEACHERS_PETS',
       teachersPets: [
-    
+        {id: 1, initials: 'ABC', score: 69}, 
+        {id: 1, initials: 'DEF', score: 10}
       ]
     })
     expect(results).toEqual(expected)

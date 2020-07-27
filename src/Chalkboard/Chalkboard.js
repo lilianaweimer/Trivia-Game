@@ -5,7 +5,6 @@ import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
 import { Redirect } from 'react-router-dom'
-import GameOver from '../GameOver/GameOver'
 import { bindActionCreators } from 'redux'
 import 'nes.css/css/nes.min.css'
 import { 
@@ -76,7 +75,6 @@ class Chalkboard extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     if (this.props.questions.length === 0) {
       return (
         <Redirect to='/'/>

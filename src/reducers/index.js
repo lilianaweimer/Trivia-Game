@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { setQuestions } from './setQuestions'
+import { setTeachersPets } from './setTeachersPets'
 import { setCurrentRound } from './setCurrentRound' 
 import { setCurrentQuestion } from './setCurrentQuestion' 
 import { setScore } from './setScore'  
@@ -12,6 +13,7 @@ import { hasErrored } from './hasErrored'
 
 export const rootReducer = combineReducers({
   setQuestions,
+  setTeachersPets,
   setCurrentRound,
   setCurrentQuestion,
   setScore,

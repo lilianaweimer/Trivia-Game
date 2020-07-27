@@ -1,7 +1,7 @@
 import { setQuestions }from './setQuestions'
+// import { combineReducers } from "redux"
 
 describe('setQuestions', () => {
-  
   it('Should return an initial state', () => {
     const expected = []
     const results = setQuestions(undefined, {})
@@ -35,6 +35,10 @@ describe('setQuestions', () => {
       ]
       }
     ]] 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     const results = setQuestions(undefined, {
       type: 'SET_QUESTIONS',
       questions: [
@@ -64,6 +68,7 @@ describe('setQuestions', () => {
         }
       ]
     })
+<<<<<<< HEAD
     expect(results).toEqual(expected)
   })
 })
@@ -78,3 +83,9 @@ describe('setQuestions', () => {
 
 
 
+=======
+
+    expect(results).toEqual(expected)
+  })
+})
+>>>>>>> master
