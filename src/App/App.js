@@ -7,7 +7,6 @@ import GameOver from '../GameOver/GameOver';
 
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
-import { hasErrored } from '../actions';
 
 class App extends React.Component {
 
@@ -37,21 +36,24 @@ class App extends React.Component {
           <Route path='/gameover'>
             <GameOver />
           </Route>
+          <Route path='/nerdz'>
+            <TeachersPets />
+          </Route>
         </Switch>
       </main>
     )
   }
 }
 
-const mapStateToProps = ({ isLoading, hasErrored }) => ({
-  // playerName: setPlayerName,
-  // questions: setQuestions,
-  // currentQuestion: setCurrentQuestion,
-  // currentRound: setCurrentRound,
+const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives, setTeachersPets }) => ({
+  playerName: setPlayerName,
+  questions: setQuestions,
+  currentQuestion: setCurrentQuestion,
+  currentRound: setCurrentRound,
   isLoading: isLoading,
   error: hasErrored,
-  // lives: setLives,
-  // teachersPets: teachersPets
+  lives: setLives,
+  teachersPets: setTeachersPets
 })
 
 export default connect(mapStateToProps)(App);
