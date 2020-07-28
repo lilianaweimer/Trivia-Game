@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Lives from '../Lives/Lives'
+import PropTypes from 'prop-types';
 import './Header.css'
 
 const Header = (props) => {
@@ -16,6 +17,14 @@ const Header = (props) => {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  currentRound: PropTypes.number, 
+  lives: PropTypes.number,
+  question: PropTypes.object,  
+  questionCounter: PropTypes.number,
+  score: PropTypes.number
 }
 
 export default Header

@@ -2,6 +2,7 @@ import React from 'react';
 import './TeachersPets.css';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const TeachersPets = (props) => {
   if(props.teachersPets.length) {
@@ -28,6 +29,10 @@ const TeachersPets = (props) => {
       </section>
     )
   }
+}
+
+TeachersPets.propTypes = {
+  teacherPets: PropTypes.array
 }
 
 const mapStateToProps = ({ setTeachersPets }) => ({
