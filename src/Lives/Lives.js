@@ -15,7 +15,7 @@ const Lives = (props) => {
     })}</p>
   )} else {
     return (
-      <p> Error: No Lives Were Given</p>
+      <p>Error: No Lives Were Given</p>
     )
   }
 }
