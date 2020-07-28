@@ -17,7 +17,7 @@ import {
   decrementScore 
 } from '../actions';
 import './Chalkboard.css';
-var decode = require('unescape');
+
 
 class Chalkboard extends React.Component {
   constructor(props) {

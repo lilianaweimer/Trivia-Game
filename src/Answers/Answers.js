@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Answers.css'
 import PropTypes from 'prop-types';
-var decode = require('unescape');
+const Entities = require('html-entities').XmlEntities;
+const entities = new Entities();
 
 const Answers = (props) => {
   if (props.question) {  
@@ -19,7 +20,7 @@ const Answers = (props) => {
         id={answer}
         onClick={e => props.checkAnswer(e)}
         >
-        {decode(answer)}
+        {entities.decode(answer)}
       </span>
 
       </label>
