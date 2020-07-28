@@ -1,6 +1,7 @@
 import React from 'react';
 import './AnswerModal.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 const Entities = require('html-entities').XmlEntities;
 const entities = new Entities();
 
@@ -24,6 +25,15 @@ const AnswerModal = (props) => {
       </section>
     )
   }
+}
+
+AnswerModal.propTypes = {
+  answers: PropTypes.number,
+  correct: PropTypes.bool,
+  correctAnswer: PropTypes.string,
+  incrementQuestion: PropTypes.func,
+  lives: PropTypes.number,
+  resetCurrentQuestion: PropTypes.func
 }
 
 export default AnswerModal

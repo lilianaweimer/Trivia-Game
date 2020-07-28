@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   height: 40vh;
-  width: max-content;
   justify-content: space-evenly;
   margin-top: 4vh;
+  word-break: break-all;
 }

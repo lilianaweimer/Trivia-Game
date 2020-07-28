@@ -10,8 +10,8 @@ const Lives = (props) => {
       lives.push('')
   }
   return (
-    <p>{lives.map(heart => {
-      return <i className='nes-icon heart is-medium' data-testid='heart'/>
+    <p>{lives.map((heart, i) => {
+      return <i key={i} className='nes-icon heart is-medium' data-testid='heart'/>
     })}</p>
   )} else {
     return (

@@ -11,7 +11,6 @@ const TeachersPets = (props) => {
     let pets = props.teachersPets.sort((a, b) => b.score - a.score).map(pet => {
       return <li>{pet.initials}: {pet.score}</li>
     })
-    console.log(pets)
     return (
       <section className='scoreboard nes-container is-rounded'>
         <h2 className='scoreboard-title'>Teacher's Pets:</h2>
