@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import './Answers.css'
+import PropTypes from 'prop-types';
 var decode = require('unescape');
 
 const Answers = (props) => {
@@ -31,6 +32,11 @@ const Answers = (props) => {
   )} else {
     return <p>Error: No Answers Provided</p>
   }
+}
+
+Answers.propTypes = {
+  question: PropTypes.object,
+  checkAnswer: PropTypes.func
 }
 
 export default Answers

@@ -6,6 +6,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { setPlayerName, isLoading } from '../actions'
 import { getQuestions } from '../thunks/getQuestions'
 import { getTeachersPets } from '../thunks/getTeachersPets'
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -21,7 +22,6 @@ class Form extends React.Component {
       round4: '',
       round5: '',
       round6: '',
-      // isDisabled: true
     }
   }
 
@@ -33,11 +33,9 @@ class Form extends React.Component {
   
   handleSubmit = (e) => {
     e.preventDefault()
-    // if(this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
       this.props.setPlayerName(this.state.name)
       this.getAllQuestions()
       this.props.history.push('/play')
-    // } 
   }
     
   getAllQuestions = async () => {
@@ -98,7 +96,6 @@ class Form extends React.Component {
           {this.renderInputs()}
         </section>
         <input 
-          // className={this.state.isDisabled ? 'play-btn nes-btn is-disabled' : 'player-btn nes-btn'}
           className='play-btn nes-btn'
           type='submit'
           value='Play!'
@@ -107,6 +104,13 @@ class Form extends React.Component {
       </form>
     )
   }
+}
+
+Form.propTypes = {
+  getQuestions: PropTypes.func,
+  getTeachersPets: PropTypes.func,
+  isLoading: PropTypes.func,
+  setPlayerName: PropTypes.func
 }
 
 const mapDispatchToProps = dispatch => (

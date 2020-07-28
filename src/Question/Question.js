@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import './Question.css'
+import PropTypes from 'prop-types';
 var decode = require('unescape')
 
 const Question = (props) => {
@@ -22,6 +23,11 @@ const Question = (props) => {
       <p>Error: No Question Provided</p>
     )
   }
+}
+
+Question.propTypes = {
+  error: PropTypes.string,
+  isLoading: PropTypes.bool
 }
 
 export default Question
