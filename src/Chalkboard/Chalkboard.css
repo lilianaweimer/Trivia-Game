@@ -34,3 +34,26 @@
 #blockColorblindContent {
   display: none;
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .chalkboard {
+    width: 100%;
+    height: 100%;
+    margin: 2px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .categories {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  input {
+    width: 60vw!important;
+    margin: none!important;
+  }
+}
