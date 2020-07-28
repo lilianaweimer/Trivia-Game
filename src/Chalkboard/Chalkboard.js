@@ -79,7 +79,7 @@ class Chalkboard extends React.Component {
   }
 
   postScore = () => {
-    const url = 'http://localhost:3001/api/v1/scores'
+    const url = 'https://chalkboard-trivia.herokuapp.com/api/v1/scores'
     fetch(url, {
       method: 'POST',
       headers: {

@@ -1,7 +1,7 @@
 import { isLoading, hasErrored, setTeachersPets } from '../actions'
 
 export const getTeachersPets = () => {
-  const url = 'http://localhost:3001/api/v1/scores'
+  const url = 'https://chalkboard-trivia.herokuapp.com/api/v1/scores'
 
   return async (dispatch) => {
     try {
