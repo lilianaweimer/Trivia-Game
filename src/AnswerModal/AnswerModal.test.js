@@ -142,5 +142,28 @@ describe('AnswerModal', () => {
     expect(mockIncrementQuestion).toHaveBeenCalledTimes(1)
   })
 
-  
+  it('should call the post function on click of the game over btn', () => {
+    const mockPostScore = jest.fn()
+    
+    const { getByText, getByRole } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <AnswerModal 
+            postScore={mockPostScore}
+            correct={true}
+            correctAnswer={question.correct_answer}
+            incrementQuestion={jest.fn()}
+            resetCurrentQuestion={jest.fn()}
+            lives={0}
+            answers={4}
+          />
+        </Provider>
+      </BrowserRouter>
+    )
+    
+    const button = getByRole('button', {name: 'Game Over'})
+    fireEvent.click(button)
+    
+    expect(mockPostScore).toHaveBeenCalledTimes(1)
+  })
 })
