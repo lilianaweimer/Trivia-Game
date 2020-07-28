@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import 'nes.css/css/nes.min.css'
@@ -16,7 +17,7 @@ import {
   decrementScore 
 } from '../actions';
 import './Chalkboard.css';
-var decode = require('unescape');
+
 
 class Chalkboard extends React.Component {
   constructor(props) {
@@ -103,6 +104,7 @@ class Chalkboard extends React.Component {
           currentRound={this.props.currentRound}
           score={this.props.score}
         />
+        <progress className='nes-progress is-pattern' value={this.state.answerCount} max='30'/>
           <section className='nes-container is-rounded chalkboard'>
             <Question question={question.question} />
             <Answers 
@@ -124,6 +126,15 @@ class Chalkboard extends React.Component {
       </div>
     )
   }
+}
+
+Chalkboard.propTypes = {
+  playerName: PropTypes.string,
+  questions: PropTypes.array,
+  currentQuestion: PropTypes.func,
+  currentRound: PropTypes.number,
+  lives: PropTypes.number,
+  score: PropTypes.number
 }
 
 const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, setLives, setScore }) => ({

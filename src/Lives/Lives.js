@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { connect } from 'react-redux'
 
 const Lives = (props) => {
@@ -16,6 +18,10 @@ const Lives = (props) => {
       <p> Error: No Lives Were Given</p>
     )
   }
+}
+
+Lives.propTypes = {
+  lives: PropTypes.number
 }
 
 export default Lives
