@@ -7,13 +7,13 @@ import PropTypes from 'prop-types'
 const TeachersPets = (props) => {
   if(props.teachersPets.length) {
     console.log(props.teachersPets, 'TEACHERSPETS')
-    let pets = props.teachersPets.map(pet => {
+    let pets = props.teachersPets.sort((a, b) => b.score - a.score).map(pet => {
       console.log(pet, 'PET')
       return <li>{pet.initials}: {pet.score}</li>
     })
     console.log(pets)
     return (
-      <section className='scoreboard'>
+      <section className='scoreboard nes-container is-rounded'>
         <h2 className='scoreboard-title'>Teacher's Pets:</h2>
         <ul className='scoreboard-list'>
           {pets}
@@ -23,7 +23,7 @@ const TeachersPets = (props) => {
     )
   } else {
     return (
-      <section className='scoreboard'>
+      <section className='scoreboard nes-container is-rounded'>
         <h2>No high scores</h2>
         <Link to='/'><button className='nes-btn'>Home</button></Link>
       </section>

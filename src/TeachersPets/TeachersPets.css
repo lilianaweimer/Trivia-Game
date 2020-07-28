@@ -4,10 +4,11 @@
     border: 1px solid black;
     display: flex;
     flex-flow: column nowrap;
-    height: 50%;
+    height: max-content;
     justify-content: center;
     margin: 0 auto;
-    width: 50%;
+    width: max-content;
+    overflow-y: auto;
 }
 
 .scoreboard-list {
