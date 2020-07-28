@@ -115,7 +115,7 @@ class Form extends React.Component {
           type='submit'
           value='Play!'
         />
-      <Link to='/nerdz'><button className='nes-btn' onClick={this.props.getTeachersPets}>Teachers Pets</button></Link>
+        <Link to='/nerdz'><button className='teachers-pets nes-btn' onClick={this.props.getTeachersPets}>Teachers Pets</button></Link>
       </form>
     )
   }

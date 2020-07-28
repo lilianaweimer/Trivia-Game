@@ -1,17 +1,18 @@
 .start-game-form {
+  background-color: #1a522c;
+  border: 20px ridge #976237!important;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  border: 20px ridge #976237!important;
-  background-color: #1a522c;
-  width: 80vw;
   height: 80vh;
-  color: white;
+  justify-content: space-around;
+  padding: 3%;
+  width: 80vw;
 }
 
 .categories {
   display: grid;
-  height: 60%;
+  height: 50%;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%
 }
@@ -20,10 +21,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 10%;
+  padding: 5%;
 }
 
 .player-input,
+.teachers-pets,
 .play-btn {
   align-self: center;
   width: 33%
