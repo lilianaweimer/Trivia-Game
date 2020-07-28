@@ -15,13 +15,12 @@ const Header = (props) => {
       <section className='lives'>
         Lives: <Lives lives={props.lives} />
       </section>
-      <button className='nes-btn' onClick={props.buyLife}>+</button>
+      <button className='nes-btn' onClick={props.toggleBuyLifeModal}>+</button>
     </header>
   )
 }
 
 Header.propTypes = {
-  buyLife: PropTypes.func,
   currentRound: PropTypes.number, 
   lives: PropTypes.number,
   question: PropTypes.object,  

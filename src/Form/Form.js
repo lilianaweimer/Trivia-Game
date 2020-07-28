@@ -22,7 +22,7 @@ class Form extends React.Component {
       round4: '',
       round5: '',
       round6: '',
-      isDisabled: true
+      isDisabled: true,
     }
   }
 
