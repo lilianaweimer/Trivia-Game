@@ -20,7 +20,11 @@ const GameOver = (props) => {
     )} 
     if(!props.playerName) {
       return (
-        <p>Error: You have no data, how did you get here?</p>
+        <section className='nes-balloon from-left'>
+          <p>Error: You have no data, how did you get here?</p>
+          <Link to='/'><button className='nes-btn' type='submit' onClick={props.reset}>Home</button></Link>
+        </section>
+
       )
     }
 }
