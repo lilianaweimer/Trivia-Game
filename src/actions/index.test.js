@@ -20,7 +20,7 @@ describe('actions', () => {
         "category": "Vehicles",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "Jaguar Cars was previously owned by which car mafacturer?",
+        "question": "Jaguar Cars was previously owned by which car company?",
         "correct_answer": "Ford",
         "incorrect_answers": [
           "Chrysler",
