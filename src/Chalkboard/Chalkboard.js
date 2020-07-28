@@ -12,6 +12,7 @@ import {
   incrementCurrentQuestion, 
   resetCurrentQuestion, 
   incrementCurrentRound, 
+  incrementLives,
   decrementLives,
   incrementScore,
   decrementScore 
@@ -88,6 +89,11 @@ class Chalkboard extends React.Component {
       .catch(err => console.error(err))
   }
 
+  buyLife = () => {
+    this.props.incrementLives()
+    this.props.decrementScore(300)
+  }
+
   render() {
     if (this.props.questions.length === 0) {
       return (
@@ -98,6 +104,7 @@ class Chalkboard extends React.Component {
     return (
       <div className='Page'>
         <Header 
+          buyLife={this.buyLife}
           question={this.state.question} 
           questionCounter={this.props.currentQuestion} 
           lives={this.props.lives}
@@ -152,6 +159,7 @@ const mapDispatchToProps = dispatch => (
       incrementCurrentQuestion, 
       resetCurrentQuestion, 
       incrementCurrentRound,
+      incrementLives,
       decrementLives,
       incrementScore,
       decrementScore 

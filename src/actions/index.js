@@ -30,6 +30,10 @@ export const decrementScore = score => ({
   score
 })
 
+export const incrementLives = () => ({
+  type: 'INCREMENT_LIVES',
+})
+
 export const decrementLives = () => ({
   type: 'DECREMENT_LIVES',
 })
