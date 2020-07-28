@@ -6,6 +6,13 @@ describe('setLives reducer', () => {
     const result = setLives(undefined, {})
     expect(result).toEqual(expected)
   })
+  it('should increment state', () => {
+    const expected = 4
+    const result = setLives(undefined, {
+      type: 'INCREMENT_LIVES'
+    })
+    expect(result).toEqual(expected)
+  })
 
   it('should decrement state', () => {
     const expected = 2
@@ -26,4 +33,5 @@ describe('setLives reducer', () => {
     })
     expect(result).toEqual(expected)
   })
+
 })

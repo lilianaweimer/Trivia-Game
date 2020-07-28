@@ -4,15 +4,15 @@
     border: 1px solid black;
     display: flex;
     flex-flow: column nowrap;
-    height: max-content;
+    height: 50%;
     justify-content: center;
     margin: 0 auto;
-    width: max-content;
-    overflow-y: auto;
+    width: 50%;
 }
 
 .scoreboard-list {
     list-style: none;
     margin: 20px;
+    overflow-y: auto;
     /* replace bullet points with little images? */
 }

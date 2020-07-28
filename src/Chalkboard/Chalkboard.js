@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import Question from '../Question/Question'
 import Answers from '../Answers/Answers'
 import AnswerModal from '../AnswerModal/AnswerModal'
+import BuyLifeModal from '../BuyLifeModal/BuyLifeModal'
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
@@ -12,6 +13,7 @@ import {
   incrementCurrentQuestion, 
   resetCurrentQuestion, 
   incrementCurrentRound, 
+  incrementLives,
   decrementLives,
   incrementScore,
   decrementScore 
@@ -27,6 +29,7 @@ class Chalkboard extends React.Component {
       isCorrect: null,
       gameOver: false,
       answerCount: 0,
+      isBuyingLives: false
     }
   }
 
@@ -82,10 +85,20 @@ class Chalkboard extends React.Component {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ initials: this.props.playerName, score: this.props.score })
+      body: JSON.stringify({ name: this.props.playerName, score: this.props.score })
     })
       .then(res => console.log(res))
       .catch(err => console.error(err))
+  }
+
+  toggleBuyLifeModal = () => {
+    this.setState({ isBuyingLives: !this.state.isBuyingLives })
+  }
+
+  buyLife = () => {
+    this.props.incrementLives()
+    this.props.decrementScore(300)
+    this.toggleBuyLifeModal()
   }
 
   render() {
@@ -98,6 +111,7 @@ class Chalkboard extends React.Component {
     return (
       <div className='Page'>
         <Header 
+          toggleBuyLifeModal={this.toggleBuyLifeModal}
           question={this.state.question} 
           questionCounter={this.props.currentQuestion} 
           lives={this.props.lives}
@@ -120,6 +134,12 @@ class Chalkboard extends React.Component {
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
                 lives={this.props.lives}
                 answers={this.state.answerCount}
+              />
+            }
+            {this.state.isBuyingLives &&
+              <BuyLifeModal 
+                buyLife={this.buyLife}
+                toggleBuyLifeModal={this.toggleBuyLifeModal}
               />
             }
           </section>
@@ -152,6 +172,7 @@ const mapDispatchToProps = dispatch => (
       incrementCurrentQuestion, 
       resetCurrentQuestion, 
       incrementCurrentRound,
+      incrementLives,
       decrementLives,
       incrementScore,
       decrementScore 

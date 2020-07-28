@@ -157,6 +157,17 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction)
   })
 
+  it('Should increment the lives', () => {
+
+    const expectedAction = {
+      type: 'INCREMENT_LIVES',
+    }
+
+    const result = actions.incrementLives()
+
+    expect(result).toEqual(expectedAction)
+  })
+
   it('Should decrement the lives', () => {
 
     const expectedAction = {

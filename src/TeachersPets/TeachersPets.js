@@ -9,7 +9,7 @@ import { reset } from '../actions';
 const TeachersPets = (props) => {
   if(props.teachersPets.length) {
     let pets = props.teachersPets.sort((a, b) => b.score - a.score).map(pet => {
-      return <li>{pet.initials}: {pet.score}</li>
+      return <li key={pet.id}>{pet.name}: {pet.score}</li>
     })
     return (
       <section className='scoreboard nes-container is-rounded'>

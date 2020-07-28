@@ -2,7 +2,7 @@ import React from 'react';
 import './AnswerModal.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
-const Entities = require('html-entities').XmlEntities;
+const Entities = require('html-entities').AllHtmlEntities;
 const entities = new Entities();
 
 const AnswerModal = (props) => {
