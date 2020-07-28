@@ -119,6 +119,8 @@ describe('App', () => {
 
     const category = await waitFor(() => getByText('Geography'))
     const question = await waitFor(() => getByText("What is the capital of Indonesia?"))
-  
+    
+    expect(category).toBeInTheDocument()
+    expect(question).toBeInTheDocument()
   })
 })
