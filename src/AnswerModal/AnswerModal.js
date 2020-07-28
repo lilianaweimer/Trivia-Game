@@ -32,7 +32,7 @@ AnswerModal.propTypes = {
   correct: PropTypes.bool,
   correctAnswer: PropTypes.string,
   incrementQuestion: PropTypes.func,
-  lives: PropTypes.func,
+  lives: PropTypes.number,
   resetCurrentQuestion: PropTypes.func
 }
 

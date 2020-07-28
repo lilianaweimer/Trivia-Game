@@ -3,7 +3,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import App from './App';
 import { createStore, applyMiddleware } from 'redux'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import { rootReducer } from '../reducers/index';
 import thunk from 'redux-thunk';
@@ -47,11 +47,11 @@ const store = createStore(rootReducer, {
 describe('App', () => {
   it('should render the form component upon mount', () => {
     const { getByText } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Provider store={store}>
           <App />
         </Provider>
-      </BrowserRouter>
+      </MemoryRouter>
     )
 
     const form = getByText('Welcome to', {exact: false})
@@ -60,11 +60,11 @@ describe('App', () => {
 
   it('should render the loading screen when the submit button is clicked', () => {
     const { getByDisplayValue, getByText, getByPlaceholderText, getByTestId } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Provider store={store}>
           <App />
         </Provider>
-      </BrowserRouter>);
+      </MemoryRouter>);
 
     const submit = getByDisplayValue('Play!');
 
@@ -88,4 +88,37 @@ describe('App', () => {
 
     const loading = getByText('Loading')
   });
+
+  it('should render the questions after click', async () => {
+    const { getByDisplayValue, getByText, getByPlaceholderText, getByTestId } = render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </MemoryRouter>);
+
+    const submit = await waitFor(() => getByDisplayValue('Play!'));
+
+    const nameInput = await waitFor(() => getByPlaceholderText('Name'));
+    const roundOne = await waitFor(() => getByTestId('round1'));
+    const roundTwo = await waitFor(() => getByTestId('round2'));
+    const roundThree = await waitFor(() => getByTestId('round3'));
+    const roundFour = await waitFor(() => getByTestId('round4'));
+    const roundFive = await waitFor(() => getByTestId('round5'));
+    const roundSix = await waitFor(() => getByTestId('round6'));
+
+    fireEvent.change(nameInput, {target: {value: 'somebody'}});
+    fireEvent.change(roundOne, {target: {value: '23'}});
+    fireEvent.change(roundTwo, {target: {value: '22'}});
+    fireEvent.change(roundThree, {target: {value: '19'}});
+    fireEvent.change(roundFour, {target: {value: '25'}});
+    fireEvent.change(roundFive, {target: {value: '17'}});
+    fireEvent.change(roundSix, {target: {value: '10'}});
+
+    fireEvent.click(submit);
+
+    const category = await waitFor(() => getByText('Geography'))
+    const question = await waitFor(() => getByText("What is the capital of Indonesia?"))
+  
+  })
 })

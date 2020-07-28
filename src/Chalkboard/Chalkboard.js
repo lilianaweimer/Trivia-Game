@@ -126,7 +126,7 @@ class Chalkboard extends React.Component {
 Chalkboard.propTypes = {
   playerName: PropTypes.string,
   questions: PropTypes.array,
-  currentQuestion: PropTypes.func,
+  currentQuestion: PropTypes.number,
   currentRound: PropTypes.number,
   lives: PropTypes.number,
   score: PropTypes.number
