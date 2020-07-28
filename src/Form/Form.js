@@ -110,10 +110,8 @@ class Form extends React.Component {
         <section className='categories'>
           {this.renderInputs()}
         </section>
-        {/* {this.renderSubmit()} */}
         <input 
           className={this.state.isDisabled ? 'play-btn nes-btn is-disabled' : 'play-btn nes-btn'}
-          // className='play-btn nes-btn'
           type='submit'
           value='Play!'
         />
