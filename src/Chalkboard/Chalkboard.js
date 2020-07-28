@@ -85,7 +85,7 @@ class Chalkboard extends React.Component {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ initials: this.props.playerName, score: this.props.score })
+      body: JSON.stringify({ name: this.props.playerName, score: this.props.score })
     })
       .then(res => console.log(res))
       .catch(err => console.error(err))
