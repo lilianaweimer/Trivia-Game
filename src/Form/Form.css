@@ -4,7 +4,7 @@
   color: white;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 90vh;
   justify-content: space-around;
   padding: 3%;
   width: 80vw;
@@ -28,9 +28,14 @@
 .teachers-pets,
 .play-btn {
   align-self: center;
-  width: 33%
+  width: 33%;
+  margin: 3px;
 }
 
 .input-msg-red {
   color: red
+}
+
+h2 {
+  font-size: 20px;
 }

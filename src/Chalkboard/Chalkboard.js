@@ -91,6 +91,7 @@ class Chalkboard extends React.Component {
           currentRound={this.props.currentRound}
           score={this.props.score}
         />
+        <progress className='nes-progress is-pattern' value={this.state.answerCount} max='30'/>
           <section className='nes-container is-rounded chalkboard'>
             <Question question={question.question} />
             <Answers 
