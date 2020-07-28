@@ -8,19 +8,19 @@ const entities = new Entities();
 const AnswerModal = (props) => {
   if (props.correct) {
     return(
-      <section className='modal'>
+      <section className='modal nes-container is-rounded'>
         <p>Correct!</p>
         {(props.lives <= 0 || props.answers === 30) ? 
-          <Link to='/gameover'><button className='nes-btn'>Game Over</button></Link> :
+          <Link to='/gameover'><button className='nes-btn' onClick={props.postScore}>Game Over</button></Link> :
           <button className='nes-btn' onClick={props.incrementQuestion}>Next Question</button>}
       </section>
     )
   } else {
     return (
-      <section className='modal'>
+      <section className='modal nes-container is-rounded'>
         <p>Incorrect.  The correct answer was: {entities.decode(props.correctAnswer)}</p>
         {(props.lives <= 0 || props.answers === 30) ? 
-          <Link to='/gameover'><button className='nes-btn'>Game Over</button></Link> :
+          <Link to='/gameover'><button className='nes-btn' onClick={props.postScore}>Game Over</button></Link> :
           <button className='nes-btn' onClick={props.incrementQuestion}>Next Question</button>}
       </section>
     )

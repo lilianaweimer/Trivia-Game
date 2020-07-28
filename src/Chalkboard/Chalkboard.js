@@ -75,6 +75,19 @@ class Chalkboard extends React.Component {
     })
   }
 
+  postScore = () => {
+    const url = 'http://localhost:3001/api/v1/scores'
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ initials: this.props.playerName, score: this.props.score })
+    })
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+  }
+
   render() {
     if (this.props.questions.length === 0) {
       return (
@@ -91,25 +104,17 @@ class Chalkboard extends React.Component {
           currentRound={this.props.currentRound}
           score={this.props.score}
         />
+        <progress className='nes-progress is-pattern' value={this.state.answerCount} max='30'/>
           <section className='nes-container is-rounded chalkboard'>
             <Question question={question.question} />
             <Answers 
               question={question} 
               checkAnswer={this.checkAnswer}
             />
-            {this.state.isCorrect && 
+            {this.state.isCorrect !== null && 
               <AnswerModal 
-                correct={true}
-                correctAnswer={question.correct_answer}
-                incrementQuestion={this.incrementQuestion}
-                resetCurrentQuestion={this.props.resetCurrentQuestion}
-                lives={this.props.lives}
-                answers={this.state.answerCount}
-              />
-            }
-            {this.state.isCorrect === false &&
-              <AnswerModal 
-                correct={false}
+                postScore={this.postScore}
+                correct={this.state.isCorrect}
                 correctAnswer={question.correct_answer}
                 incrementQuestion={this.incrementQuestion}
                 resetCurrentQuestion={this.props.resetCurrentQuestion}
