@@ -15,7 +15,9 @@ const Header = (props) => {
       <section className='lives'>
         Lives: <Lives lives={props.lives} />
       </section>
-      <button className='nes-btn' onClick={props.toggleBuyLifeModal}>+</button>
+      {props.lives < 4 &&
+        <button className='nes-btn' onClick={props.toggleBuyLifeModal}>+</button>
+      }
     </header>
   )
 }

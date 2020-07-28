@@ -136,7 +136,7 @@ class Chalkboard extends React.Component {
                 answers={this.state.answerCount}
               />
             }
-            {this.state.isBuyingLives && 
+            {this.state.isBuyingLives &&
               <BuyLifeModal 
                 buyLife={this.buyLife}
                 toggleBuyLifeModal={this.toggleBuyLifeModal}
