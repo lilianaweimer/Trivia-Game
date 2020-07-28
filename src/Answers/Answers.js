@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Answers.css'
 import PropTypes from 'prop-types';
-const Entities = require('html-entities').XmlEntities;
+const Entities = require('html-entities').AllHtmlEntities;
 const entities = new Entities();
 
 const Answers = (props) => {

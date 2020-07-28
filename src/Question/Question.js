@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Question.css'
 import PropTypes from 'prop-types';
-const Entities = require('html-entities').XmlEntities;
+const Entities = require('html-entities').AllHtmlEntities;
 const entities = new Entities();
 
 const Question = (props) => {
@@ -10,7 +10,7 @@ const Question = (props) => {
     let fixedQuestion = props.question
     return (
       <section className='question-container'>
-        <p>{entities.decode(fixedQuestion, 'all')}</p>
+        <p>{entities.decode(fixedQuestion)}</p>
       </section>
     )
   } else {
