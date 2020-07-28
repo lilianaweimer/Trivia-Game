@@ -6,12 +6,9 @@ import PropTypes from 'prop-types'
 
 const TeachersPets = (props) => {
   if(props.teachersPets.length) {
-    console.log(props.teachersPets, 'TEACHERSPETS')
     let pets = props.teachersPets.map(pet => {
-      console.log(pet, 'PET')
       return <li>{pet.initials}: {pet.score}</li>
     })
-    console.log(pets)
     return (
       <section className='scoreboard'>
         <h2 className='scoreboard-title'>Teacher's Pets:</h2>
