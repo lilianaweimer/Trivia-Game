@@ -1,4 +1,4 @@
-import { setTeachersPets }from './setTeachersPets'
+import { setTeachersPets } from './setTeachersPets'
 
 describe('setTeachersPets', () => {
 

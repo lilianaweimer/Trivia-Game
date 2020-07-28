@@ -5,64 +5,64 @@ describe('actions', () => {
   it('Should set all the questions', () => {
     const questions = [[
       {
-      "category": "Geography",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "What is the capital of Indonesia?",
-      "correct_answer": "Jakarta",
-      "incorrect_answers": [
-      "Bandung",
-      "Medan",
-      "Palembang"
-      ]
+        "category": "Geography",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is the capital of Indonesia?",
+        "correct_answer": "Jakarta",
+        "incorrect_answers": [
+          "Bandung",
+          "Medan",
+          "Palembang"
+        ]
       },
       {
-      "category": "Vehicles",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Jaguar Cars was previously owned by which car manfacturer?",
-      "correct_answer": "Ford",
-      "incorrect_answers": [
-      "Chrysler",
-      "General Motors",
-      "Fiat"
-      ]
+        "category": "Vehicles",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Jaguar Cars was previously owned by which car company?",
+        "correct_answer": "Ford",
+        "incorrect_answers": [
+          "Chrysler",
+          "General Motors",
+          "Fiat"
+        ]
       }
-  ]]
+    ]]
 
-  const expectedAction =  {
-    type: "SET_QUESTIONS",
-    questions: [[
-      {
-      "category": "Geography",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "What is the capital of Indonesia?",
-      "correct_answer": "Jakarta",
-      "incorrect_answers": [
-      "Bandung",
-      "Medan",
-      "Palembang"
-      ]
-      },
-      {
-      "category": "Vehicles",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Jaguar Cars was previously owned by which car manfacturer?",
-      "correct_answer": "Ford",
-      "incorrect_answers": [
-      "Chrysler",
-      "General Motors",
-      "Fiat"
-      ]
-      }
-    ]],
+    const expectedAction =  {
+      type: "SET_QUESTIONS",
+      questions: [[
+        {
+          "category": "Geography",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "What is the capital of Indonesia?",
+          "correct_answer": "Jakarta",
+          "incorrect_answers": [
+            "Bandung",
+            "Medan",
+            "Palembang"
+          ]
+        },
+        {
+          "category": "Vehicles",
+          "type": "multiple",
+          "difficulty": "easy",
+          "question": "Jaguar Cars was previously owned by which car company?",
+          "correct_answer": "Ford",
+          "incorrect_answers": [
+            "Chrysler",
+            "General Motors",
+            "Fiat"
+          ]
+        }
+      ]],
     
-  }
-  const result = actions.setQuestions(questions)
+    }
+    const result = actions.setQuestions(questions)
 
-  expect(result).toEqual(expectedAction)
+    expect(result).toEqual(expectedAction)
   })
 
   it('Should be able to set the teachers pets', () => {

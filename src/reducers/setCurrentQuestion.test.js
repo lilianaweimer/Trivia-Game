@@ -18,8 +18,8 @@ describe('setCurrentQuestion reducer', () => {
   it('should reset state', () => {
     const expected = 0
 
-    setCurrentQuestion(undefined, {type:'INCREMENT_CURRENT_QUESTION'})
-    setCurrentQuestion(undefined, {type:'INCREMENT_CURRENT_QUESTION'})
+    setCurrentQuestion(undefined, { type: 'INCREMENT_CURRENT_QUESTION' })
+    setCurrentQuestion(undefined, { type: 'INCREMENT_CURRENT_QUESTION' })
 
     const result = setCurrentQuestion(undefined, {
       type: 'RESET_CURRENT_QUESTION'
@@ -31,8 +31,8 @@ describe('setCurrentQuestion reducer', () => {
   it('should reset state', () => {
     const expected = 0
 
-    setCurrentQuestion(undefined, {type:'INCREMENT_CURRENT_QUESTION'})
-    setCurrentQuestion(undefined, {type:'INCREMENT_CURRENT_QUESTION'})
+    setCurrentQuestion(undefined, { type: 'INCREMENT_CURRENT_QUESTION' })
+    setCurrentQuestion(undefined, { type: 'INCREMENT_CURRENT_QUESTION' })
 
     const result = setCurrentQuestion(undefined, {
       type: 'RESET'
