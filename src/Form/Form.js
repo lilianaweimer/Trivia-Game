@@ -21,7 +21,15 @@ class Form extends React.Component {
       round4: '',
       round5: '',
       round6: '',
-      // isDisabled: true
+      isDisabled: true
+    }
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if(this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
+      if(prevState.isDisabled === this.state.isDisabled) {
+        this.setState({ isDisabled: false })
+      }
     }
   }
 
@@ -33,11 +41,13 @@ class Form extends React.Component {
   
   handleSubmit = (e) => {
     e.preventDefault()
-    // if(this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
+    if(this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
       this.props.setPlayerName(this.state.name)
       this.getAllQuestions()
       this.props.history.push('/play')
-    // } 
+    } else {
+      document.getElementById('input-msg').classList.add('input-msg-red')
+    }
   }
     
   getAllQuestions = async () => {
@@ -56,25 +66,25 @@ class Form extends React.Component {
     for(let i = 1; i < 7; i++) {
       inputs.push(
         <section className='round-label nes-select is-dark' key={i}>
-        <h3>{`Round ${i}`}</h3>
-        <select 
-          name={`round${i}`}
-          onChange={this.handleChange}
-          data-testid={`round${i}`}
+          <h3>{`Round ${i}`}</h3>
+          <select 
+            name={`round${i}`}
+            onChange={this.handleChange}
+            data-testid={`round${i}`}
           >
-          <option>Select a subject...</option>
-          <option value='23'>History</option>
-          <option value='22'>Geography</option>
-          <option value='19'>Math</option>
-          <option value='25'>Art</option>
-          <option value='17'>Science & Nature</option>
-          <option value='10'>Books</option>
-        </select>
-      </section>
-    )
+            <option>Select a subject...</option>
+            <option value='23'>History</option>
+            <option value='22'>Geography</option>
+            <option value='19'>Math</option>
+            <option value='25'>Art</option>
+            <option value='17'>Science & Nature</option>
+            <option value='10'>Books</option>
+          </select>
+        </section>
+      )
+    }
+    return inputs
   }
-  return inputs
-}
 
   render() {
     return (
@@ -83,6 +93,7 @@ class Form extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <h1>Welcome to Chalkboard Trivia!</h1>
+        <p id='input-msg'>Fill out all fields below to play!</p>
         <label className='player-input'>
           Player:
           <input 
@@ -97,9 +108,10 @@ class Form extends React.Component {
         <section className='categories'>
           {this.renderInputs()}
         </section>
+        {/* {this.renderSubmit()} */}
         <input 
-          // className={this.state.isDisabled ? 'play-btn nes-btn is-disabled' : 'player-btn nes-btn'}
-          className='play-btn nes-btn'
+          className={this.state.isDisabled ? 'play-btn nes-btn is-disabled' : 'play-btn nes-btn'}
+          // className='play-btn nes-btn'
           type='submit'
           value='Play!'
         />
