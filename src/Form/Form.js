@@ -66,11 +66,12 @@ class Form extends React.Component {
     for(let i = 1; i < 7; i++) {
       inputs.push(
         <section className='round-label nes-select is-dark' key={i}>
-          <h3>{`Round ${i}`}</h3>
+          <h2>{`Round ${i}`}</h2>
           <select 
             name={`round${i}`}
             onChange={this.handleChange}
             data-testid={`round${i}`}
+            aria-label={`Round ${i} subject dropdown menu`}
           >
             <option>Select a subject...</option>
             <option value='23'>History</option>
