@@ -4,7 +4,7 @@ import Form from '../Form/Form';
 import TeachersPets from '../TeachersPets/TeachersPets';
 import Chalkboard from '../Chalkboard/Chalkboard';
 import GameOver from '../GameOver/GameOver';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
@@ -46,14 +46,20 @@ class App extends React.Component {
 }
 
 const mapStateToProps = ({ setPlayerName, setQuestions, setCurrentQuestion, setCurrentRound, isLoading, hasErrored, setLives, setTeachersPets }) => ({
-  playerName: setPlayerName,
-  questions: setQuestions,
-  currentQuestion: setCurrentQuestion,
-  currentRound: setCurrentRound,
+  // playerName: setPlayerName,
+  // questions: setQuestions,
+  // currentQuestion: setCurrentQuestion,
+  // currentRound: setCurrentRound,
   isLoading: isLoading,
   error: hasErrored,
-  lives: setLives,
-  teachersPets: setTeachersPets
+  // lives: setLives,
+  // teachersPets: setTeachersPets
 })
+
+App.propTypes = {
+  isLoading: PropTypes.bool,
+  hasErrored: PropTypes.string
+
+}
 
 export default connect(mapStateToProps)(App);

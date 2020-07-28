@@ -6,6 +6,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { setPlayerName, isLoading } from '../actions'
 import { getQuestions } from '../thunks/getQuestions'
 import { getTeachersPets } from '../thunks/getTeachersPets'
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -120,6 +121,13 @@ class Form extends React.Component {
       </form>
     )
   }
+}
+
+Form.propTypes = {
+  getQuestions: PropTypes.func,
+  getTeachersPets: PropTypes.func,
+  isLoading: PropTypes.func,
+  setPlayerName: PropTypes.func
 }
 
 const mapDispatchToProps = dispatch => (
