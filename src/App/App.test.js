@@ -59,7 +59,7 @@ describe('App', () => {
   });
 
   it('should render the loading screen when the submit button is clicked', () => {
-    const { getByDisplayValue, getByText } = render(
+    const { getByDisplayValue, getByText, getByPlaceholderText, getByTestId } = render(
       <BrowserRouter>
         <Provider store={store}>
           <App />
@@ -67,6 +67,22 @@ describe('App', () => {
       </BrowserRouter>);
 
     const submit = getByDisplayValue('Play!');
+
+    const nameInput = getByPlaceholderText('Name');
+    const roundOne = getByTestId('round1');
+    const roundTwo = getByTestId('round2');
+    const roundThree = getByTestId('round3');
+    const roundFour = getByTestId('round4');
+    const roundFive = getByTestId('round5');
+    const roundSix = getByTestId('round6');
+
+    fireEvent.change(nameInput, {target: {value: 'somebody'}});
+    fireEvent.change(roundOne, {target: {value: '23'}});
+    fireEvent.change(roundTwo, {target: {value: '22'}});
+    fireEvent.change(roundThree, {target: {value: '19'}});
+    fireEvent.change(roundFour, {target: {value: '25'}});
+    fireEvent.change(roundFive, {target: {value: '17'}});
+    fireEvent.change(roundSix, {target: {value: '10'}});
 
     fireEvent.click(submit);
 
