@@ -11,12 +11,12 @@ import { Switch, Route } from 'react-router-dom'
 class App extends React.Component {
 
   render() {
-    if(this.props.error) {
+    if (this.props.error) {
       return (
         <p>{this.props.error}</p>
       )
     }
-    if(this.props.isLoading) {
+    if (this.props.isLoading) {
       return (
         <main className='App'>
           <p className='loading'>Loading<span>.</span><span>.</span><span>.</span></p>

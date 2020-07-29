@@ -6,7 +6,7 @@ export const getTeachersPets = () => {
   return async (dispatch) => {
     try {
       const response = await fetch(url)
-      if(!response.ok) {
+      if (!response.ok) {
         throw Error(response.statusText)
       }
       const data = await response.json()

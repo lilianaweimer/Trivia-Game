@@ -34,7 +34,7 @@ class Chalkboard extends React.Component {
   }
 
   componentDidMount() {
-  if(this.props.questions.length) {
+  if (this.props.questions.length) {
     this.setState({question: this.props.questions[this.props.currentRound][this.props.currentQuestion]})
     }
   }
@@ -43,7 +43,7 @@ class Chalkboard extends React.Component {
     this.setState((prevState) => {
       return { ...prevState, answerCount: prevState.answerCount + 1 }
     })
-    if(e.target.id === this.state.question.correct_answer) {
+    if (e.target.id === this.state.question.correct_answer) {
       this.setState({isCorrect: true})
       this.addPoints()
     } else {

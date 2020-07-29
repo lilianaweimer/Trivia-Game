@@ -47,7 +47,7 @@ class Form extends React.Component {
   
   handleSubmit = (e) => {
     e.preventDefault()
-    if(this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
+    if (this.state.name && this.state.round1 && this.state.round2 && this.state.round3 && this.state.round4 && this.state.round5 && this.state.round6) {
       this.props.setPlayerName(this.state.name)
       this.getAllQuestions()
       this.props.history.push('/play')
@@ -69,7 +69,7 @@ class Form extends React.Component {
     
   renderInputs = () => {
     let inputs = []
-    for(let i = 1; i < 7; i++) {
+    for (let i = 1; i < 7; i++) {
       inputs.push(
         <section className='round-label nes-select is-dark' key={i}>
           <h2>{`Round ${i}`}</h2>
