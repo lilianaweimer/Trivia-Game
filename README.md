@@ -4,7 +4,7 @@
 
 This is the group project from The Turing School of Software & Design's Mod 3 of Front-End Engineering. The assigned objectives were to use an external API and a technology we would teach ourselves to build an application of our own design. We chose to use the [Open Trivia DB](https://opentdb.com/api_config.php) API and Redux to build a trivia game loosely based on schoolhouse themes. 
 
-Our Express 
+Deployed site: https://chalkboard-trivia.herokuapp.com/
 
 ## Contributors
 - [Bill Wilke](https://github.com/Billwilke42)
